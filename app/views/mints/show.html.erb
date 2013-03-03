@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @mint.name %>
+</p>
+
+<p>
+  <b>Symbol:</b>
+  <%= @mint.symbol %>
+</p>
+
+<p>
+  <b>Alwayspresent:</b>
+  <%= @mint.alwaysPresent %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @mint.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_mint_path(@mint) %> |
+<%= link_to 'Back', mints_path %>

@@ -1,4 +1,7 @@
 Coins::Application.routes.draw do
+  resources :mints
+
+
   resources :coins
 
 
