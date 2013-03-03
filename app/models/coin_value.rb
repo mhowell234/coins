@@ -1,4 +1,4 @@
 class CoinValue < ActiveRecord::Base
   attr_accessible :description, :name, :value
-  has_many :Coin
+  has_many :coins
 end
