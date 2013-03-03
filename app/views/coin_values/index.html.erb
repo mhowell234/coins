@@ -1,0 +1,27 @@
+<h1>Listing coin_values</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coin_values.each do |coin_value| %>
+  <tr>
+    <td><%= coin_value.name %></td>
+    <td><%= coin_value.value %></td>
+    <td><%= coin_value.description %></td>
+    <td><%= link_to 'Show', coin_value %></td>
+    <td><%= link_to 'Edit', edit_coin_value_path(coin_value) %></td>
+    <td><%= link_to 'Destroy', coin_value, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coin value', new_coin_value_path %>

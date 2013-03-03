@@ -1,4 +1,10 @@
 Coins::Application.routes.draw do
+  resources :coins
+
+
+  resources :coin_values
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

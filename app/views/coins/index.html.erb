@@ -1,0 +1,29 @@
+<h1>Listing coins</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Startyear</th>
+    <th>Endyear</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coins.each do |coin| %>
+  <tr>
+    <td><%= coin.name %></td>
+    <td><%= coin.startYear %></td>
+    <td><%= coin.endYear %></td>
+    <td><%= coin.description %></td>
+    <td><%= link_to 'Show', coin %></td>
+    <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
+    <td><%= link_to 'Destroy', coin, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coin', new_coin_path %>
