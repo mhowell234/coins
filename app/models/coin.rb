@@ -13,5 +13,10 @@
 
 class Coin < ActiveRecord::Base
   attr_accessible :description, :endYear, :name, :startYear
+
+  validates :name, :presence=> true
+  validates :startYear, :presence=> true
+
   belongs_to :coinvalue
+
 end
