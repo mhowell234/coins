@@ -55,9 +55,12 @@ header {
 
   nav {
     float: right;
-  
+    margin-top: .5em;
+    
     ul {
       color: #fff;
+      font-size: 1.15em;
+      font-weight: bold;
       margin-right: 1em;
       
       li {

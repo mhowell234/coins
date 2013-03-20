@@ -1,14 +1,13 @@
-<header class="nav1bar n1avbar-fixed-top n1avbar-inverse">
-  <div class="navba1r-inner">
-    <div class="container">
-      <%= link_to "Our Coin Awesomeness", root_path, :id=> "logo" %>
-      <nav style="float: right">
-        <ul class="na1v p1ull-right">
-          <li style="display:inline"><%= link_to "Home",    root_path %></li>
-          <li style="display:inline"><%= link_to "Help",    help_path %></li>
-        </ul>
-      </nav>
-    </div>
+<header>
+  <div class="container">
+    <%= link_to "Our Coin Awesomeness", root_path, :id=> "logo" %>
+    <nav>
+      <ul>
+        <li><%= link_to "Home",    root_path %></li>
+        <li><%= link_to "U.S. Coins",    coin_values_path %></li>
+        <li><%= link_to "Help",    help_path %></li>
+      </ul>
+    </nav>
   </div>
   <div class="visualClear"></div>
 </header>
