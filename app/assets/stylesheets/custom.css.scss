@@ -40,7 +40,6 @@ textarea {
 div.container {
   background-color: #fff;
   clear: both;
-/*  margin-top: 2em;*/
   padding: 1em;
 }
 
@@ -208,8 +207,12 @@ dt {
   width: 300px;
   padding: 10px 5px;
   border-top: 1px solid #CCC;
-  font-size: 1.1em;
-  font-weight: bold;
+  font-size: 1.2em;
+  font-weight: bold;  
+
+  .actions {
+    font-size: .7em;
+  }
 }
 
 dd {
@@ -235,6 +238,10 @@ dd {
   }
 }
 
+.actions {
+  font-size: .8em;
+  padding-left: 1em;
+}
 
 
 .debug_dump {

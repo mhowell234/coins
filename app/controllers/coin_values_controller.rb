@@ -2,7 +2,8 @@ class CoinValuesController < ApplicationController
   # GET /coin_values
   # GET /coin_values.json
   def index
-    @coin_values = CoinValue.all
+    @coin_values = CoinValue.order('coin_values.value DESC, coin_values.name ASC').all
+    #@coin_values = CoinValue.all
 
     respond_to do |format|
       format.html # index.html.erb

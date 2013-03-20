@@ -13,8 +13,11 @@
   <dt>
     <%= link_to coin_value.name, coin_value %> 
     <br /><br />
+    
+    <div class="actions">
     <span class="edit"><%= link_to 'Edit', edit_coin_value_path(coin_value) %></span> | 
     <span class="delete"><%= link_to 'Delete', coin_value, :method => :delete, :data => { :confirm => 'Are you sure?' } %></span>
+    </div>
   </dt>
   <dd>
     <p><%=raw coin_value.description %></p>
@@ -41,4 +44,6 @@
 
 <br />
 
-<span class="add">(<%= link_to 'New', new_coin_value_path %>)</span>
+<div class="actions">
+  <span class="add"><%= link_to '<< Create New >>', new_coin_value_path %></span>
+</div>
