@@ -17,7 +17,9 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  background-color: #AE070F;
+  position: relative;
+/*  padding-top: 60px; */
 }
 
 section {
@@ -35,6 +37,50 @@ textarea {
   }
 }
 
+div.container {
+  background-color: #fff;
+  clear: both;
+/*  margin-top: 2em;*/
+  padding: 1em;
+}
+
+header {
+  background-color: #252525;
+
+  div.container {
+    background-color: #252525;
+    clear: none;
+    margin-top: 0;
+    padding: 1em 0 1em;
+  }
+
+  nav {
+    float: right;
+  
+    ul {
+      color: #fff;
+      margin-right: 1em;
+      
+      li {
+        color: #fff;
+        display:inline;
+        
+        a, a:visited {
+          color: #fff;
+        }
+        
+        &:after {
+          content: " | ";
+        }
+        
+        &:last-child:after {
+          content: "";
+        }        
+      }
+    }
+  }
+}
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -42,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -60,6 +106,21 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+table {
+  border: 1px solid #000;
+  padding: 3px;
+}
+
+tr {
+  border: 1px solid #000;
+  padding: 3px;
+}
+
+th, td {
+  border: 1px solid #000;
+  padding: 3px;
 }
 
 /* header */
@@ -113,6 +174,69 @@ footer {
 
 /* miscellaneous */
 
+
+
+dl {
+  float: left;
+  width: 100%;
+  margin: 1em 0;
+  padding: 0;
+  border-bottom: 1px solid #CCC;
+
+  dt.first, dl dd.first {
+    border-top: 0;
+  }
+}
+
+dl.normal-dl {
+  float: none;
+
+  dt {
+    padding-top: 2em;
+  }
+}
+
+dl.normal-dl.first {
+  dt, dd {
+    border-top: 1px solid transparent;
+  }
+}
+
+dt {
+  clear: left;
+  float: left;
+  width: 300px;
+  padding: 10px 5px;
+  border-top: 1px solid #CCC;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+dd {
+  float: left;
+  width: 600px;
+  margin: 0;
+  padding: 10px 5px;
+  border-top: 1px solid #CCC;
+}	
+
+
+.container {
+  dd {
+    width: 590px;
+  }
+
+  dl {
+    border-bottom: 0;
+  }
+
+  dl dt.first, dl dd.first {
+    border-top: 0;
+  }
+}
+
+
+
 .debug_dump {
   clear: both;
   float: left;
@@ -135,4 +259,33 @@ input {
   height: auto !important;
 }
 
+h1 {
+  text-align: left;
+}
 
+.description {
+  font-weight: bold;
+}
+
+span.add, span.add a {
+  color: green;
+  font-weight: bold;
+}
+
+span.edit, span.edit a {
+  color: blue;
+  font-weight: bold;
+}
+
+span.delete, span.delete a {
+  color: red;
+  font-weight: bold;
+}
+
+.hide {
+  display: none;
+}
+
+.visualClear { 
+  clear: both;
+}
