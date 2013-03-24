@@ -4,8 +4,8 @@
 #
 #  id          :integer          not null, primary key
 #  name        :string(255)
-#  startYear   :integer
-#  endYear     :integer
+#  start_year   :integer
+#  end_year     :integer
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -15,12 +15,12 @@
 
 one:
   name: MyString
-  startYear: 1
-  endYear: 1
+  start_year: 1
+  end_year: 1
   description: MyText
 
 two:
   name: MyString
-  startYear: 1
-  endYear: 1
+  start_year: 1
+  end_year: 1
   description: MyText

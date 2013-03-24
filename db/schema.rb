@@ -22,20 +22,21 @@ ActiveRecord::Schema.define(:version => 20130303162912) do
 
   create_table "coins", :force => true do |t|
     t.string   "name"
-    t.integer  "startYear"
-    t.integer  "endYear"
+    t.integer  "start_year"
+    t.integer  "end_year"
     t.text     "description"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "coin_value_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "mints", :force => true do |t|
     t.string   "name"
     t.string   "symbol"
-    t.boolean  "alwaysPresent"
+    t.boolean  "always_present"
     t.text     "comments"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

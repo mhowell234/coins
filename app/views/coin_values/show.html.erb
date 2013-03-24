@@ -9,7 +9,12 @@
   <%= @coin_value.value %>
 </p>
 
-
+<dl>
+<% for coin in @coin_value.coins %>
+  <dt><%= link_to coin.name, coin %></dt>
+  <dd><%= raw coin.description %></dd>
+<% end %>
+</dl>
 
 <%= link_to 'Edit', edit_coin_value_path(@coin_value) %> |
 <%= link_to 'Back', coin_values_path %>

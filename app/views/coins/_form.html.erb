@@ -16,16 +16,20 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :startYear %><br />
-    <%= f.number_field :startYear %>
+    <%= f.label :start_year %><br />
+    <%= f.number_field :start_year %>
   </div>
   <div class="field">
-    <%= f.label :endYear %><br />
-    <%= f.number_field :endYear %>
+    <%= f.label :end_year %><br />
+    <%= f.number_field :end_year %>
   </div>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :coin_value_id %><br />
+    <%= f.select :coin_value_id, CoinValue.find(:all, :order=> "value DESC").collect {|c| [c.name, c.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

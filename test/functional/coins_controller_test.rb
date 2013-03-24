@@ -18,7 +18,7 @@ class CoinsControllerTest < ActionController::TestCase
 
   test "should create coin" do
     assert_difference('Coin.count') do
-      post :create, :coin => { :description => @coin.description, :endYear => @coin.endYear, :name => @coin.name, :startYear => @coin.startYear }
+      post :create, :coin => { :description => @coin.description, :end_year => @coin.end_year, :name => @coin.name, :start_year => @coin.start_year }
     end
 
     assert_redirected_to coin_path(assigns(:coin))
@@ -35,7 +35,7 @@ class CoinsControllerTest < ActionController::TestCase
   end
 
   test "should update coin" do
-    put :update, :id => @coin, :coin => { :description => @coin.description, :endYear => @coin.endYear, :name => @coin.name, :startYear => @coin.startYear }
+    put :update, :id => @coin, :coin => { :description => @coin.description, :end_year => @coin.end_year, :name => @coin.name, :start_year => @coin.start_year }
     assert_redirected_to coin_path(assigns(:coin))
   end
 

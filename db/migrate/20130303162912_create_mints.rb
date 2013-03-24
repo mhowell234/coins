@@ -3,7 +3,7 @@ class CreateMints < ActiveRecord::Migration
     create_table :mints do |t|
       t.string :name
       t.string :symbol
-      t.boolean :alwaysPresent
+      t.boolean :always_present
       t.text :comments
 
       t.timestamps

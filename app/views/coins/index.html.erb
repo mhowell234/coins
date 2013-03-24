@@ -3,9 +3,10 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Startyear</th>
-    <th>Endyear</th>
+    <th>Start year</th>
+    <th>End year</th>
     <th>Description</th>
+    <th>Coin value</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,9 +15,10 @@
 <% @coins.each do |coin| %>
   <tr>
     <td><%= coin.name %></td>
-    <td><%= coin.startYear %></td>
-    <td><%= coin.endYear %></td>
+    <td><%= coin.start_year %></td>
+    <td><%= coin.end_year %></td>
     <td><%= coin.description %></td>
+    <td><%= coin.coin_value_id %></td>
     <td><%= link_to 'Show', coin %></td>
     <td><%= link_to 'Edit', edit_coin_path(coin) %></td>
     <td><%= link_to 'Destroy', coin, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>

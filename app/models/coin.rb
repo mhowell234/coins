@@ -12,11 +12,13 @@
 #
 
 class Coin < ActiveRecord::Base
-  attr_accessible :description, :endYear, :name, :startYear
+  attr_accessible :coin_value_id, :description, :end_year, :name, :start_year
 
+  belongs_to :coin_value
+  
   validates :name, :presence=> true
-  validates :startYear, :presence=> true
+  validates :start_year, :presence=> true
 
-  belongs_to :coinvalue
+  validates :coin_value_id, :presence=> true
 
 end

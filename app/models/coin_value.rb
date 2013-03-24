@@ -14,9 +14,9 @@ class CoinValue < ActiveRecord::Base
 
   attr_accessible :description, :name, :value
 
+  has_many :coins
+
   validates :name, :presence=> true, :uniqueness=> true
   validates :value, :presence=> true
-
-  has_many :coins
 
 end
