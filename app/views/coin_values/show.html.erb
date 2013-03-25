@@ -11,7 +11,7 @@
 
 <dl>
 <% for coin in @coin_value.coins %>
-  <dt><%= link_to coin.name, coin %></dt>
+  <dt><%= link_to coin.name, coin_value_coin_path(coin) %></dt>
   <dd><%= raw coin.description %></dd>
 <% end %>
 </dl>

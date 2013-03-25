@@ -6,8 +6,9 @@ Coins::Application.routes.draw do
   match '/about',   :to=> 'static_pages#about'
 
   resources :mints
-  resources :coins
-  resources :coin_values
+  resources :coin_values do
+    resources :coins
+  end
 
 
   # The priority is based upon order of creation:
