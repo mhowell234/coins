@@ -1,0 +1,27 @@
+<h1>Listing coin_attributes</h1>
+
+<table>
+  <tr>
+    <th>Coin</th>
+    <th>Coin attribute type</th>
+    <th>Coin attribute value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @coin_attributes.each do |coin_attribute| %>
+  <tr>
+    <td><%= coin_attribute.coin_id %></td>
+    <td><%= coin_attribute.coin_attribute_type %></td>
+    <td><%= coin_attribute.coin_attribute_value %></td>
+    <td><%= link_to 'Show', coin_attribute %></td>
+    <td><%= link_to 'Edit', edit_coin_attribute_path(coin_attribute) %></td>
+    <td><%= link_to 'Destroy', coin_attribute, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Coin attribute', new_coin_attribute_path %>

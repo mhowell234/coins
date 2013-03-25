@@ -5,7 +5,7 @@
 #  id            :integer          not null, primary key
 #  name          :string(255)
 #  symbol        :string(255)
-#  alwaysPresent :boolean
+#  always_present :boolean
 #  comments      :text
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

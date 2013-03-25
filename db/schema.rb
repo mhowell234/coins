@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303162912) do
+ActiveRecord::Schema.define(:version => 20130325043522) do
+
+  create_table "coin_attributes", :force => true do |t|
+    t.integer  "coin_id"
+    t.integer  "coin_attribute_type"
+    t.text     "coin_attribute_value"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "coin_values", :force => true do |t|
     t.string   "name"

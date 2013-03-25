@@ -1,0 +1,29 @@
+<%= form_for(@coin_attribute) do |f| %>
+  <% if @coin_attribute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@coin_attribute.errors.count, "error") %> prohibited this coin_attribute from being saved:</h2>
+
+      <ul>
+      <% @coin_attribute.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :coin_id %><br />
+    <%= f.number_field :coin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :coin_attribute_type %><br />
+    <%= f.number_field :coin_attribute_type %>
+  </div>
+  <div class="field">
+    <%= f.label :coin_attribute_value %><br />
+    <%= f.text_area :coin_attribute_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
