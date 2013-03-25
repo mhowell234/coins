@@ -1,6 +1,7 @@
 Coins::Application.routes.draw do
 
-  resources :coin_attributes
+
+  resources :coin_attribute_types
 
 
   root :to=> 'static_pages#home'
@@ -10,7 +11,9 @@ Coins::Application.routes.draw do
 
   resources :mints
   resources :coin_values do
-    resources :coins
+    resources :coins do
+      resources :coin_attributes
+    end
   end
 
 

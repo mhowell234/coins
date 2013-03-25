@@ -1,0 +1,2 @@
+module CoinAttributeTypesHelper
+end
