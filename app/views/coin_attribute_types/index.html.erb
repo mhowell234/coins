@@ -11,7 +11,6 @@
 
 <% @coin_attribute_types.each do |coin_attribute_type| %>
   <tr>
-    <td><%= coin_attribute_type.coin_attribute_type_id %></td>
     <td><%= coin_attribute_type.value %></td>
     <td><%= link_to 'Show', coin_attribute_type %></td>
     <td><%= link_to 'Edit', edit_coin_attribute_type_path(coin_attribute_type) %></td>

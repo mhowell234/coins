@@ -1,4 +1,5 @@
-<h1><%= @coin_value.name %> Coins</h1>
+<h1><%= link_to @coin_value.name, @coin_value %></h1>
+
 
 <% if !@coin_value.coins.empty? %>
 <dl>
@@ -21,7 +22,7 @@
   <p><%= @coin_value.name %> doesn't have any coins yet.</p>
 <% end %>
 
-<p>
- <%= link_to 'New Coin', new_coin_value_coin_path(@coin_value) %> |
- <%= link_to 'Back', @coin_value %>
-</p>
+<div class="actions">
+  <span class="add"><%= link_to 'New Coin', new_coin_value_coin_path(@coin_value) %> |
+  <span class="back"><%= link_to 'Back', @coin_value %></span>
+</div>

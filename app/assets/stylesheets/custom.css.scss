@@ -40,7 +40,7 @@ textarea {
 div.container {
   background-color: #fff;
   clear: both;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 header {
@@ -289,6 +289,11 @@ span.edit, span.edit a {
 
 span.delete, span.delete a {
   color: red;
+  font-weight: bold;
+}
+
+span.back, span.back a {
+  color: orange;
   font-weight: bold;
 }
 
