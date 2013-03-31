@@ -11,8 +11,12 @@
 
 <dl>
 <% for coin in @coin_value.coins %>
-  <dt><%= link_to coin.name, [@coin_value, coin] %></dt>
-  <dd><%= raw coin.description %></dd>
+  <dt>
+    <%= link_to coin.name, [@coin_value, coin] %>
+    <section><%= coin.years %></section>
+
+  </dt>
+  <dd class="expandable"><p><%= raw coin.description %></p></dd>
 <% end %>
 </dl>
 

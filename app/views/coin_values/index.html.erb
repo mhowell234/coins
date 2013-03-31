@@ -2,42 +2,21 @@
 
 <dl>
 <% @coin_values.each do |coin_value| %>
-<%
-#foreach ($denominations as $key => $row) {
 
-#  $id = get($row, 'id');
-#  $name = get($row, 'name');
-#  $dateRange = get($row, 'dateRange');
-#  $description = get($row, 'description');
-%>  
   <dt>
     <%= link_to coin_value.name, coin_value %> 
-    <br /><br />
     
+    <section><%= coin_value.years %></section>
+
     <div class="actions">
-    <span class="edit"><%= link_to 'Edit', edit_coin_value_path(coin_value) %></span> | 
-    <span class="delete"><%= link_to 'Delete', coin_value, :method => :delete, :data => { :confirm => 'Are you sure?' } %></span>
+      <span class="edit"><%= link_to 'Edit', edit_coin_value_path(coin_value) %></span> | 
+      <span class="delete"><%= link_to 'Delete', coin_value, :method => :delete, :data => { :confirm => 'Are you sure?' } %></span>
     </div>
   </dt>
-  <dd>
+  <dd class="expandable">
     <p><%=raw coin_value.description %></p>
   </dd>
-<%  
-#  if ($dateRange != null) {
-#    echo "($dateRange)";
-#  }
   
-#  echo "</dt>";
-
-#  echo "<dd>";
-#  if ($description != "") {
-#      echo "<p>$description</p>";
-#  }
-#  echo "</dd>";
-
-#}
-%>
-</dt>
 <% end %>
 </dl>
 <div class="visualClear"></div>

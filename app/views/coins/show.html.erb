@@ -2,17 +2,13 @@
 
 <h1><%= @coin.name %> - <%= @coin.coin_value.name%></h1>
 
+<p class="field">
+  <label>Years Minted:</label>
+  <%= @coin.years %>
+</p>
+
+
 <p class="description"><%=raw @coin.description %></p>
-
-<p>
-  <b>Start year:</b>
-  <%= @coin.start_year %>
-</p>
-
-<p>
-  <b>End year:</b>
-  <%= @coin.end_year %>
-</p>
 
 
 <div class="actions">

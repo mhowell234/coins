@@ -1,6 +1,9 @@
 Coins::Application.routes.draw do
 
 
+  resources :origins
+
+
   root :to=> 'static_pages#home'
 
   match '/help',    :to=> 'static_pages#help'

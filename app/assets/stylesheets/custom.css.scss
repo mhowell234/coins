@@ -188,6 +188,13 @@ dl {
   dt.first, dl dd.first {
     border-top: 0;
   }
+  
+  section {
+    color: #666;
+    font-size: .8em;
+    margin-top: 1em;
+    padding-left: 1em;
+  }
 }
 
 dl.normal-dl {
@@ -308,4 +315,32 @@ span.back, span.back a {
 dt .actions {
   display: block;
   margin-top: 1.5em;
+}
+
+
+.field {
+  
+}
+
+.field label {
+  display: inline;
+  font-weight: bold;
+}
+
+.right-aligned {
+  color: #000;
+  float: right;
+  padding-right: 1em;
+}
+
+.right-aligned label {
+  display: none;
+}
+
+.read-more, .read-more a {
+  color: blue;
+}
+
+.read-less, .read-less a {
+  color: red;
 }

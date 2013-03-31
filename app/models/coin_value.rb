@@ -19,4 +19,26 @@ class CoinValue < ActiveRecord::Base
   validates :name, :presence=> true, :uniqueness=> true
   validates :value, :presence=> true
 
+
+  # Displays the years this coin was minted
+  def years
+
+    firstCoin = Coin.where(["coin_value_id = :cv", { :cv => id }]).order("coins.start_year ASC").find(:first)
+    lastCoin = Coin.where(["coin_value_id = :cv", { :cv => id }]).order("coins.start_year ASC").find(:last)
+
+    start_year = firstCoin.start_year
+    end_year = lastCoin.end_year
+
+    if end_year == 0
+      require 'date'
+      end_year_str = Date.today.strftime("%Y")
+    else
+      end_year_str = end_year
+    end
+      
+    return "#{start_year} - #{end_year_str}"
+
+  end
+
+
 end

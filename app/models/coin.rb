@@ -24,4 +24,19 @@ class Coin < ActiveRecord::Base
 
   validates :coin_value_id, :presence=> true
 
+
+  # Displays the years this coin was minted
+  def years
+    
+    if end_year == 0
+      require 'date'
+      end_year_str = Date.today.strftime("%Y")
+    else
+      end_year_str = end_year
+    end
+      
+    return "#{start_year} - #{end_year_str}"
+  end
+
+
 end
