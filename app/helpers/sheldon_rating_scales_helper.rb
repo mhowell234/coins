@@ -1,0 +1,2 @@
+module SheldonRatingScalesHelper
+end

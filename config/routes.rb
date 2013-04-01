@@ -1,8 +1,11 @@
 Coins::Application.routes.draw do
 
 
+  resources :precious_metal
+  resources :sheldon_rating_scales
+  resources :sheldon_rating_categories
+  resources :rating_agencies
   resources :origins
-
 
   root :to=> 'static_pages#home'
 
@@ -12,6 +15,9 @@ Coins::Application.routes.draw do
   resources :mints
   resources :coin_values do
     resources :coins do
+    
+      resources :year_coins
+
       resources :coin_attributes do
         resources :coin_attribute_types
       end

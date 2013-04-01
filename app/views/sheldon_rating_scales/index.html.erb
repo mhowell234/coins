@@ -1,0 +1,29 @@
+<h1>Listing sheldon_rating_scales</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Sheldon rating category</th>
+    <th>Value</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sheldon_rating_scales.each do |sheldon_rating_scale| %>
+  <tr>
+    <td><%= sheldon_rating_scale.title %></td>
+    <td><%= sheldon_rating_scale.sheldon_rating_category_id %></td>
+    <td><%= sheldon_rating_scale.value %></td>
+    <td><%= sheldon_rating_scale.description %></td>
+    <td><%= link_to 'Show', sheldon_rating_scale %></td>
+    <td><%= link_to 'Edit', edit_sheldon_rating_scale_path(sheldon_rating_scale) %></td>
+    <td><%= link_to 'Destroy', sheldon_rating_scale, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sheldon rating scale', new_sheldon_rating_scale_path %>

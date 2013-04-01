@@ -2,11 +2,16 @@
 
 <h1><%= @coin.name %> - <%= @coin.coin_value.name%></h1>
 
+<% if @coin.has_photo? %>
+  <p class="align-right">
+    <%= image_tag @coin.photo_path, :width => '300' %>
+  </p>
+<% end %>
+
 <p class="field">
   <label>Years Minted:</label>
   <%= @coin.years %>
 </p>
-
 
 <p class="description"><%=raw @coin.description %></p>
 

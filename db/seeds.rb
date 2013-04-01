@@ -1,6 +1,110 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
+## Origins
+
+Origin.find_or_create_by_id(:id => 1, :name => 'ebay')
+Origin.find_or_create_by_id(:id => 2, :name => 'Grandma Betty')
+Origin.find_or_create_by_id(:id => 3, :name => 'Raymond and Jane Howell')
+
+
+## Rating Agencies
+
+RatingAgency.find_or_create_by_id(:id => 1, :name => 'NGC', :full_name => 'Numismatic Guaranty Corporation ')
+RatingAgency.find_or_create_by_id(:id => 2, :name => 'PCGS', :full_name => 'Professional Coin Grading Service')
+RatingAgency.find_or_create_by_id(:id => 3, :name => 'Blue Book 2013', :full_name => 'Handbook of United States Coins 2013')
+
+## Sheldon Rating Categories
+
+SheldonRatingCategory.find_or_create_by_id(:id => 1, :title => 'PF', :description => 'Proof', :start => 60, :end => 70, :special_order => 1)
+SheldonRatingCategory.find_or_create_by_id(:id => 2, :title => 'MS', :description => 'Mint State', :start => 60, :end => 70, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 3, :title => 'AU', :description => 'About Uncirculated', :start => 50, :end => 59, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 4, :title => 'EF', :description => 'Extremely Fine', :start => 40, :end => 49, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 5, :title => 'VF', :description => 'Very Fine', :start => 20, :end => 39, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 6, :title => 'F', :description => 'Fine', :start => 12, :end => 19, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 7, :title => 'VG', :description => 'Very Good', :start => 8, :end => 11, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 8, :title => 'G', :description => 'Good', :start => 4, :end => 7, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 9, :title => 'AG', :description => 'About Good', :start => 3, :end => 3, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 10, :title => 'FR', :description => 'Fair', :start => 2, :end => 2, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 11, :title => 'PO', :description => 'Poor', :start => 1, :end => 1, :special_order => 0)
+SheldonRatingCategory.find_or_create_by_id(:id => 12, :title => 'B', :description => 'Bad', :start => 0, :end => 0, :special_order => 0)
+
+
+## Sheldon Rating Scales
+
+SheldonRatingScale.find_or_create_by_id(:id => 1, :title => 'PO-1', :sheldon_rating_category_id => 11, :value => 1.00, :description => 'Identifiable date and type')
+SheldonRatingScale.find_or_create_by_id(:id => 2, :title => 'FR-2', :sheldon_rating_category_id => 10, :value => 2.00, :description => 'Mostly worn, though some detail is visible')
+SheldonRatingScale.find_or_create_by_id(:id => 3, :title => 'AG-3', :sheldon_rating_category_id => 9, :value => 3.00, :description => 'Worn rims but most lettering is readable though worn')
+SheldonRatingScale.find_or_create_by_id(:id => 4, :title => 'G-4', :sheldon_rating_category_id => 8, :value => 4.00, :description => 'Slightly worn rims, flat detail, peripheral lettering nearly full')
+SheldonRatingScale.find_or_create_by_id(:id => 5, :title => 'G-6', :sheldon_rating_category_id => 8, :value => 6.00, :description => 'Rims complete with flat detail, peripheral lettering full')
+SheldonRatingScale.find_or_create_by_id(:id => 6, :title => 'VG-8', :sheldon_rating_category_id => 7, :value => 8.00, :description => 'Design worn with slight detail')
+SheldonRatingScale.find_or_create_by_id(:id => 7, :title => 'VG-10', :sheldon_rating_category_id => 7, :value => 10.00, :description => 'Design worn with slight detail, slightly clearer')
+SheldonRatingScale.find_or_create_by_id(:id => 8, :title => 'F-12', :sheldon_rating_category_id => 6, :value => 12.00, :description => 'Some deeply recessed areas with detail, all lettering sharp')
+SheldonRatingScale.find_or_create_by_id(:id => 9, :title => 'F-15', :sheldon_rating_category_id => 6, :value => 15.00, :description => 'Slightly more detail in the recessed areas, all lettering sharp')
+SheldonRatingScale.find_or_create_by_id(:id => 10, :title => 'VF-20', :sheldon_rating_category_id => 5, :value => 20.00, :description => 'Some definition of detail, all lettering full and sharp')
+SheldonRatingScale.find_or_create_by_id(:id => 11, :title => 'VF-25', :sheldon_rating_category_id => 5, :value => 25.00, :description => 'Slightly more definition in the detail and lettering')
+SheldonRatingScale.find_or_create_by_id(:id => 12, :title => 'VF-30', :sheldon_rating_category_id => 5, :value => 30.00, :description => 'Almost complete detail with flat areas')
+SheldonRatingScale.find_or_create_by_id(:id => 13, :title => 'VF-35', :sheldon_rating_category_id => 5, :value => 35.00, :description => 'Detail is complete but worn with high points flat')
+SheldonRatingScale.find_or_create_by_id(:id => 14, :title => 'EF-40', :sheldon_rating_category_id => 4, :value => 40.00, :description => 'Detail is complete with most high points slightly flat')
+SheldonRatingScale.find_or_create_by_id(:id => 15, :title => 'EF-45', :sheldon_rating_category_id => 4, :value => 45.00, :description => 'Detail is complete with some high points flat')
+SheldonRatingScale.find_or_create_by_id(:id => 16, :title => 'EF-45+', :sheldon_rating_category_id => 4, :value => 45.01, :description => 'Detail is complete with a few high points flat. Superior eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 17, :title => 'AU-50', :sheldon_rating_category_id => 3, :value => 50.00, :description => 'Full detail with friction over most of the surface, slight flatness on high points.')
+SheldonRatingScale.find_or_create_by_id(:id => 18, :title => 'AU-50+', :sheldon_rating_category_id => 3, :value => 50.01, :description => 'Full detail with friction over most of the surface, very slight flatness on high points. Good eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 19, :title => 'AU-53', :sheldon_rating_category_id => 3, :value => 53.00, :description => 'Full detail with friction over 1/2 or more of surface, very slight flatness on high points.')
+SheldonRatingScale.find_or_create_by_id(:id => 20, :title => 'AU-53+', :sheldon_rating_category_id => 3, :value => 53.01, :description => 'Full detail with friction on only 1/2 of surface, extremely slight flatness on high points. Positive eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 21, :title => 'AU-55', :sheldon_rating_category_id => 3, :value => 55.00, :description => 'Full detail with friction on less than 1/2 surface, mainly on high points.')
+SheldonRatingScale.find_or_create_by_id(:id => 22, :title => 'AU-55+', :sheldon_rating_category_id => 3, :value => 55.01, :description => 'Full detail with slight friction on less than 1/2 of surface, on high points. Eye appeal is good.')
+SheldonRatingScale.find_or_create_by_id(:id => 23, :title => 'AU-58', :sheldon_rating_category_id => 3, :value => 58.00, :description => 'Full detail with only slight friction on the high points.')
+SheldonRatingScale.find_or_create_by_id(:id => 24, :title => 'AU-58+', :sheldon_rating_category_id => 3, :value => 58.01, :description => 'Full detail with the barest trace of friction on the highest points. Superior eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 25, :title => 'MS-60', :sheldon_rating_category_id => 2, :value => 60.00, :description => 'No wear. May have many heavy marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 26, :title => 'MS-61', :sheldon_rating_category_id => 2, :value => 61.00, :description => 'No wear. Multiple heavy marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 27, :title => 'MS-62', :sheldon_rating_category_id => 2, :value => 62.00, :description => 'No wear. Slightly less marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 28, :title => 'MS-62+', :sheldon_rating_category_id => 2, :value => 62.01, :description => 'No wear. Still slightly above number of marks/hairlines, strike may not be full. Attractive eye appeal for grade.')
+SheldonRatingScale.find_or_create_by_id(:id => 29, :title => 'MS-63', :sheldon_rating_category_id => 2, :value => 63.00, :description => 'Moderate number/size marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 30, :title => 'MS-63+', :sheldon_rating_category_id => 2, :value => 63.01, :description => 'Average number of marks/hairlines, strike will be close to average. Good eye appeal for grade.')
+SheldonRatingScale.find_or_create_by_id(:id => 31, :title => 'MS-64', :sheldon_rating_category_id => 2, :value => 64.00, :description => 'Few marks/hairlines or a couple of severe ones, strike should be average or above')
+SheldonRatingScale.find_or_create_by_id(:id => 32, :title => 'MS-64+', :sheldon_rating_category_id => 2, :value => 64.01, :description => 'Very few marks/hairlines or a couple of heavier ones, strike should be average or above. Superior eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 33, :title => 'MS-65', :sheldon_rating_category_id => 2, :value => 65.00, :description => 'Minor marks/hairlines though none in focal areas, above average strike')
+SheldonRatingScale.find_or_create_by_id(:id => 34, :title => 'MS-65+', :sheldon_rating_category_id => 2, :value => 65.01, :description => 'Very minor marks/hairlines though none in focal areas, above average strike and eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 35, :title => 'MS-66', :sheldon_rating_category_id => 2, :value => 66.00, :description => 'Few minor marks/hairlines not in focal areas, good strike')
+SheldonRatingScale.find_or_create_by_id(:id => 36, :title => 'MS-66+', :sheldon_rating_category_id => 2, :value => 66.01, :description => 'Very few minor marks/hairlines not in focal areas, very good strike with superior eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 37, :title => 'MS-67', :sheldon_rating_category_id => 2, :value => 67.00, :description => 'Virtually as struck with minor imperfections, very well struck')
+SheldonRatingScale.find_or_create_by_id(:id => 38, :title => 'MS-67+', :sheldon_rating_category_id => 2, :value => 67.01, :description => 'Virtually as struck with very minor imperfections, very well struck with attractive eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 39, :title => 'MS-68', :sheldon_rating_category_id => 2, :value => 68.00, :description => 'Virtually as struck with slight imperfections, slightest weakness of strike allowed')
+SheldonRatingScale.find_or_create_by_id(:id => 40, :title => 'MS-68+', :sheldon_rating_category_id => 2, :value => 68.01, :description => 'Virtually as struck with very slight imperfections, the strike must be virtually full. Eye appeal must be very good.')
+SheldonRatingScale.find_or_create_by_id(:id => 41, :title => 'MS-69', :sheldon_rating_category_id => 2, :value => 69.00, :description => 'Virtually as struck with minuscule imperfections, near full strike necessary')
+SheldonRatingScale.find_or_create_by_id(:id => 42, :title => 'MS-70', :sheldon_rating_category_id => 2, :value => 70.00, :description => 'As struck, with full strike')
+SheldonRatingScale.find_or_create_by_id(:id => 43, :title => 'PF-60', :sheldon_rating_category_id => 1, :value => 60.00, :description => 'No wear. May have many heavy marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 44, :title => 'PF-61', :sheldon_rating_category_id => 1, :value => 61.00, :description => 'No wear. Multiple heavy marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 45, :title => 'PF-62', :sheldon_rating_category_id => 1, :value => 62.00, :description => 'No wear. Slightly less marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 46, :title => 'PF-62+', :sheldon_rating_category_id => 1, :value => 62.01, :description => 'No wear. Still slightly above number of marks/hairlines, strike may not be full. Attractive eye appeal for grade.')
+SheldonRatingScale.find_or_create_by_id(:id => 47, :title => 'PF-63', :sheldon_rating_category_id => 1, :value => 63.00, :description => 'Moderate number/size marks/hairlines, strike may not be full')
+SheldonRatingScale.find_or_create_by_id(:id => 48, :title => 'PF-63+', :sheldon_rating_category_id => 1, :value => 63.01, :description => 'Average number of marks/hairlines, strike will be close to average. Good eye appeal for grade.')
+SheldonRatingScale.find_or_create_by_id(:id => 49, :title => 'PF-64', :sheldon_rating_category_id => 1, :value => 64.00, :description => 'Few marks/hairlines or a couple of severe ones, strike should be average or above')
+SheldonRatingScale.find_or_create_by_id(:id => 50, :title => 'PF-64+', :sheldon_rating_category_id => 1, :value => 64.01, :description => 'Very few marks/hairlines or a couple of heavier ones, strike should be average or above. Superior eye appeal.')
+SheldonRatingScale.find_or_create_by_id(:id => 51, :title => 'PF-65', :sheldon_rating_category_id => 1, :value => 65.00, :description => 'Minor marks/hairlines though none in focal areas, above average strike')
+SheldonRatingScale.find_or_create_by_id(:id => 52, :title => 'PF-65+', :sheldon_rating_category_id => 1, :value => 65.01, :description => 'Very minor marks/hairlines though none in focal areas, above average strike and eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 53, :title => 'PF-66', :sheldon_rating_category_id => 1, :value => 66.00, :description => 'Few minor marks/hairlines not in focal areas, good strike')
+SheldonRatingScale.find_or_create_by_id(:id => 54, :title => 'PF-66+', :sheldon_rating_category_id => 1, :value => 66.01, :description => 'Very few minor marks/hairlines not in focal areas, very good strike with superior eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 55, :title => 'PF-67', :sheldon_rating_category_id => 1, :value => 67.00, :description => 'Virtually as struck with minor imperfections, very well struck')
+SheldonRatingScale.find_or_create_by_id(:id => 56, :title => 'PF-67+', :sheldon_rating_category_id => 1, :value => 67.01, :description => 'Virtually as struck with very minor imperfections, very well struck with attractive eye appeal')
+SheldonRatingScale.find_or_create_by_id(:id => 57, :title => 'PF-68', :sheldon_rating_category_id => 1, :value => 68.00, :description => 'Virtually as struck with slight imperfections, slightest weakness of strike allowed')
+SheldonRatingScale.find_or_create_by_id(:id => 58, :title => 'PF-68+', :sheldon_rating_category_id => 1, :value => 68.01, :description => 'Virtually as struck with very slight imperfections, the strike must be virtually full. Eye appeal must be very good.')
+SheldonRatingScale.find_or_create_by_id(:id => 59, :title => 'PF-69', :sheldon_rating_category_id => 1, :value => 69.00, :description => 'Virtually as struck with minuscule imperfections, near full strike necessary')
+SheldonRatingScale.find_or_create_by_id(:id => 60, :title => 'PF-70', :sheldon_rating_category_id => 1, :value => 70.00, :description => 'As struck, with full strike')
+
+## Precious Metals -- Value needs updating regularly
+
+PreciousMetal.find_or_create_by_id(:id => 1, :name => 'Gold', :symbol => 'Au', :unit => 'ounce', :conversion_factor => 0.0321510000, :price_per_unit => 1596.9000000000, :price_per_gram => 51.3415272455)
+PreciousMetal.find_or_create_by_id(:id => 2, :name => 'Silver', :symbol => 'Ag', :unit => 'ounce', :conversion_factor => 0.0321510000, :price_per_unit => 28.3000000000, :price_per_gram => 0.9098661288)
+PreciousMetal.find_or_create_by_id(:id => 3, :name => 'Copper', :symbol => 'Cu', :unit => 'pound', :conversion_factor => 0.0022050000, :price_per_unit => 3.4200000000, :price_per_gram => 0.0075398094)
+PreciousMetal.find_or_create_by_id(:id => 4, :name => 'Manganese', :symbol => 'Mn', :unit => 'ton', :conversion_factor => 0.0000010000, :price_per_unit => 2405.0000000000, :price_per_gram => 0.0024050000)
+PreciousMetal.find_or_create_by_id(:id => 5, :name => 'Nickel', :symbol => 'Ni', :unit => 'pound', :conversion_factor => 0.0022050000, :price_per_unit => 7.5600000000, :price_per_gram => 0.0166669470)
+PreciousMetal.find_or_create_by_id(:id => 6, :name => 'Zinc', :symbol => 'Zn', :unit => 'pound', :conversion_factor => 0.0022050000, :price_per_unit => 0.8400000000, :price_per_gram => 0.0018518830)
+PreciousMetal.find_or_create_by_id(:id => 7, :name => 'Tin', :symbol => 'Sn', :unit => '', :conversion_factor => :null, :price_per_unit => :null, :price_per_gram => :null)
+PreciousMetal.find_or_create_by_id(:id => 8, :name => 'Platinum', :symbol => 'Pt', :unit => 'ounce', :conversion_factor => 0.0321510000, :price_per_unit => 1575.5000000000, :price_per_gram => 50.6535012683)
+
+
 ## Coin Denominations
 
 ### Double Eagles 

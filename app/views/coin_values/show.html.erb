@@ -16,7 +16,17 @@
     <section><%= coin.years %></section>
 
   </dt>
-  <dd class="expandable"><p><%= raw coin.description %></p></dd>
+  <dd>
+    <% if coin.has_photo? %>
+      <p class="align-right">
+        <%= image_tag coin.photo_path, :width => '150' %>
+      </p>
+    <% end %>
+
+    <div class="expandable">
+      <p><%= raw coin.description %></p>
+    </div>
+  </dd>
 <% end %>
 </dl>
 

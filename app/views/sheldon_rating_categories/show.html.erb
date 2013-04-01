@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @sheldon_rating_category.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @sheldon_rating_category.description %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @sheldon_rating_category.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @sheldon_rating_category.end %>
+</p>
+
+<p>
+  <b>Special order:</b>
+  <%= @sheldon_rating_category.special_order %>
+</p>
+
+
+<%= link_to 'Edit', edit_sheldon_rating_category_path(@sheldon_rating_category) %> |
+<%= link_to 'Back', sheldon_rating_categories_path %>

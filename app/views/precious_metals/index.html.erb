@@ -1,0 +1,33 @@
+<h1>Listing precious_metals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Symbol</th>
+    <th>Unit</th>
+    <th>Conversion factor</th>
+    <th>Price per unit</th>
+    <th>Price per gram</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @precious_metals.each do |precious_metal| %>
+  <tr>
+    <td><%= precious_metal.name %></td>
+    <td><%= precious_metal.symbol %></td>
+    <td><%= precious_metal.unit %></td>
+    <td><%= precious_metal.conversion_factor %></td>
+    <td><%= precious_metal.price_per_unit %></td>
+    <td><%= precious_metal.price_per_gram %></td>
+    <td><%= link_to 'Show', precious_metal %></td>
+    <td><%= link_to 'Edit', edit_precious_metal_path(precious_metal) %></td>
+    <td><%= link_to 'Destroy', precious_metal, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Precious metal', new_precious_metal_path %>

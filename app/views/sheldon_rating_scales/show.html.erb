@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @sheldon_rating_scale.title %>
+</p>
+
+<p>
+  <b>Sheldon rating category:</b>
+  <%= @sheldon_rating_scale.sheldon_rating_category_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @sheldon_rating_scale.value %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @sheldon_rating_scale.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_sheldon_rating_scale_path(@sheldon_rating_scale) %> |
+<%= link_to 'Back', sheldon_rating_scales_path %>

@@ -327,14 +327,18 @@ dt .actions {
   font-weight: bold;
 }
 
-.right-aligned {
+.align-right {
   color: #000;
   float: right;
   padding-right: 1em;
 }
 
-.right-aligned label {
+.align-right label {
   display: none;
+}
+
+.align-right img {
+  padding-left: 1em;
 }
 
 .read-more, .read-more a {

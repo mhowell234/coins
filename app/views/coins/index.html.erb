@@ -14,8 +14,17 @@
       <span class='delete'><%= link_to 'Delete', [@coin_value, coin], :method => :delete, :data => { :confirm => 'Are you sure?' } %></span>
     </div>
   </dt>
-  <dd><%= raw coin.description %></dd>
+  <dd>
+    <% if coin.has_photo? %>
+      <p class="align-right">
+        <%= image_tag coin.photo_path, :width => '150' %>
+      </p>
+    <% end %>
 
+    <div class="expandable">
+      <p><%= raw coin.description %></p>
+    </div>
+  </dd>
 <% end %>
 </dl>
 

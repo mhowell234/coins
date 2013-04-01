@@ -1,0 +1,31 @@
+<h1>Listing year_coins</h1>
+
+<table>
+  <tr>
+    <th>Coin</th>
+    <th>Year</th>
+    <th>Additional info</th>
+    <th>Is gold</th>
+    <th>Is silver</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @year_coins.each do |year_coin| %>
+  <tr>
+    <td><%= year_coin.coin_id %></td>
+    <td><%= year_coin.year %></td>
+    <td><%= year_coin.additional_info %></td>
+    <td><%= year_coin.is_gold %></td>
+    <td><%= year_coin.is_silver %></td>
+    <td><%= link_to 'Show', year_coin %></td>
+    <td><%= link_to 'Edit', edit_year_coin_path(year_coin) %></td>
+    <td><%= link_to 'Destroy', year_coin, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Year coin', new_year_coin_path %>
