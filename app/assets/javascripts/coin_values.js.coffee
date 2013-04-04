@@ -12,3 +12,11 @@ $(document).ready ->
     expandText: "Read More"
     collapseTimer: 0
     userCollapseText: "Read Less"
+
+
+  $(".expandable-max").expander
+    slicePoint: 1800
+    expandPrefix: "... "
+    expandText: "Read More"
+    collapseTimer: 0
+    userCollapseText: "Read Less"

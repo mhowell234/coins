@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="actions">
+  <span class="add"><%= link_to "New #{@coin_value.name} Coin", new_coin_value_coin_path(@coin_value) %></span> |
+  <span class="edit"><%= link_to 'Edit', edit_coin_value_path(@coin_value) %></span> |
+  <span class="back"><%= link_to 'Back', coin_values_path %></span>
+</div>
+
+
 <h1><%= link_to @coin_value.name, @coin_value %></h1>
 
 <p class="description"><%=raw @coin_value.description %></p>
@@ -29,9 +36,3 @@
   </dd>
 <% end %>
 </dl>
-
-<div class="actions">
-  <span class="add"><%= link_to 'New Coin', new_coin_value_coin_path(@coin_value) %></span> |
-  <span class="edit"><%= link_to 'Edit', edit_coin_value_path(@coin_value) %></span> |
-  <span class="back"><%= link_to 'Back', coin_values_path %></span>
-</div>
