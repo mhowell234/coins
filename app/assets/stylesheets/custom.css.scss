@@ -3,6 +3,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$white: #fff;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box; 
@@ -16,7 +17,7 @@ html {
   overflow-y: scroll;
 }
 
-body {
+body.regular-body {
   background-color: #AE070F;
   position: relative;
 /*  padding-top: 60px; */
@@ -38,13 +39,14 @@ textarea {
 }
 
 div.container {
-  background-color: #fff;
+  background-color: $white;
   clear: both;
   padding: 1em 2em;
 }
 
 header {
   background-color: #252525;
+  border-bottom: 1px inset $grayMediumLight; 
 
   div.container {
     background-color: #252525;
@@ -58,17 +60,17 @@ header {
     margin-top: .5em;
     
     ul {
-      color: #fff;
+      color: $white;
       font-size: 1.15em;
       font-weight: bold;
       margin-right: 1em;
       
       li {
-        color: #fff;
+        color: $white;
         display:inline;
         
         a, a:visited {
-          color: #fff;
+          color: $white;
         }
         
         &:after {
@@ -147,11 +149,17 @@ th, td {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  background-color: #252525;
+  padding: 1em;
+  border-top: 1px inset $grayMediumLight; 
+  color: $white;
 
+  div.container {
+    background: transparent;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+  
   a {
     color: $gray;
     &:hover { 
@@ -163,13 +171,32 @@ footer {
     float: left;
   }
 
-  ul {
+  nav {
     float: right;
-    list-style: none;
- 
-    li {
-      float: left;
-      margin-left: 10px;
+    margin-top: .5em;
+    
+    ul {
+      color: $white;
+      font-size: 1em;
+      font-weight: bold;
+      margin-right: 1em;
+      
+      li {
+        color: $white;
+        display:inline;
+        
+        a, a:visited {
+          color: $white;
+        }
+        
+        &:after {
+          content: " | ";
+        }
+        
+        &:last-child:after {
+          content: "";
+        }        
+      }
     }
   }
 }
