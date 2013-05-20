@@ -1,5 +1,6 @@
-%h1 New Sheldon Rating Scale
+%h1
+  New #{@sheldon_rating_category.title} Scale
 
 = render 'form'
 
-= link_to 'Back', sheldon_rating_scales_path
+= link_to 'Back', sheldon_rating_category_sheldon_rating_scales_path(@sheldon_rating_category)

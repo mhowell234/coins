@@ -1,25 +1,33 @@
-%h1 Sheldon Rating Scales
+.actions
+  %span.add= link_to "New #{@sheldon_rating_category.title} Scale", new_sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category)
+  |
+  %span.back= link_to 'Back', @sheldon_rating_category
 
-%table
-  %tr
-    %th Title
-    %th Sheldon rating category
-    %th Value
-    %th Description
-    %th
-    %th
-    %th
 
-  - @sheldon_rating_scales.each do |sheldon_rating_scale|
-    %tr
-      %td= sheldon_rating_scale.title
-      %td= sheldon_rating_scale.sheldon_rating_category_id
-      %td= sheldon_rating_scale.value
-      %td= sheldon_rating_scale.description
-      %td= link_to 'Show', sheldon_rating_scale
-      %td= link_to 'Edit', edit_sheldon_rating_scale_path(sheldon_rating_scale)
-      %td= link_to 'Destroy', sheldon_rating_scale, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%h1= link_to "#{@sheldon_rating_category.title} Category", @sheldon_rating_category
 
-%br/
+%p.description= raw @sheldon_rating_category.description
 
-= link_to 'New Sheldon rating scale', new_sheldon_rating_scale_path
+
+- if !@sheldon_rating_category.sheldon_rating_scales.empty?
+
+  %dl
+    - @sheldon_rating_scales.each do |scale|
+      %dt
+        = link_to scale.title, [@sheldon_rating_category, scale]
+
+        .actions
+          %span.edit= link_to 'Edit', edit_sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category, scale)
+          |
+          %span.delete= link_to 'Delete', [@sheldon_rating_category, scale], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+      %dd
+        .expandable
+          %p= raw scale.description
+          
+  %br/
+- else
+  %p
+    = @sheldon_rating_category.title
+    doesn't have any items yet.

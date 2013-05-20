@@ -1,7 +1,8 @@
-%h1 Editing Sheldon Rating Scale
+%h1
+  Editing #{@sheldon_rating_category.title} Scale
 
 = render 'form'
 
-= link_to 'Show', @sheldon_rating_scale
-|
-\#{link_to 'Back', sheldon_rating_scales_path}
+= link_to 'Show', [@sheldon_rating_category, @sheldon_rating_scale]
+
+= link_to 'Back', sheldon_rating_category_sheldon_rating_scales_path(@sheldon_rating_category)

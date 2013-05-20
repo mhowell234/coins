@@ -1,19 +1,21 @@
-%h1 Listing Origins
+.actions
+  %span.add= link_to '<< Create New >>', new_origin_path
 
-%table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+%h1 Coin Origins
 
+%dl
   - @origins.each do |origin|
-    %tr
-      %td= origin.name
-      %td= link_to 'Show', origin
-      %td= link_to 'Edit', edit_origin_path(origin)
-      %td= link_to 'Destroy', origin, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
+    %dt
+      = link_to origin.name, origin
+
+      .actions
+        %span.edit= link_to 'Edit', edit_origin_path(origin)
+        |
+        %span.delete= link_to 'Delete', origin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %dd.expandable
+      %p= raw origin.description
+
+.visualClear
 %br/
-
-= link_to 'New Origin', new_origin_path

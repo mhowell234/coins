@@ -1,27 +1,21 @@
+.actions
+  %span.add= link_to '<< Create New >>', new_sheldon_rating_category_path
+
 %h1 Sheldon Rating Categories
 
-%table
-  %tr
-    %th Title
-    %th Description
-    %th Start
-    %th End
-    %th Special order
-    %th
-    %th
-    %th
+%dl
+  - @sheldon_rating_categories.each do |category|
 
-  - @sheldon_rating_categories.each do |sheldon_rating_category|
-    %tr
-      %td= sheldon_rating_category.title
-      %td= sheldon_rating_category.description
-      %td= sheldon_rating_category.start
-      %td= sheldon_rating_category.end
-      %td= sheldon_rating_category.special_order
-      %td= link_to 'Show', sheldon_rating_category
-      %td= link_to 'Edit', edit_sheldon_rating_category_path(sheldon_rating_category)
-      %td= link_to 'Destroy', sheldon_rating_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %dt
+      = link_to category.title, category
 
+      .actions
+        %span.edit= link_to 'Edit', edit_sheldon_rating_category_path(category)
+        |
+        %span.delete= link_to 'Delete', category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %dd.expandable
+      %p= raw category.description
+
+.visualClear
 %br/
-
-= link_to 'New Sheldon rating category', new_sheldon_rating_category_path

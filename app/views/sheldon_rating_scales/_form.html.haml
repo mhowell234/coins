@@ -1,4 +1,4 @@
-= form_for(@sheldon_rating_scale) do |f|
+= form_for([@sheldon_rating_category, @sheldon_rating_scale]) do |f|
 
   - if @sheldon_rating_scale.errors.any?
     #error_explanation
@@ -15,9 +15,9 @@
     = f.text_field :title
 
   .field
-    = f.label :sheldon_rating_category_id, "Sheldon Rating Category"
+    = f.label :sheldon_rating_category_id, "Category"
     %br/
-    = f.number_field :sheldon_rating_category_id
+    = f.select :sheldon_rating_category_id, SheldonRatingCategory.find(:all, :order=> "end DESC").collect {|c| [c.title, c.id]}
 
   .field
     = f.label :value

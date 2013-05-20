@@ -1,21 +1,15 @@
 %p#notice= notice
 
-%p
-  %b Title:
+.actions
+  %span.edit= link_to 'Edit', edit_sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category)
+  |
+  %span.delete= link_to 'Delete', sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.back= link_to 'Back', sheldon_rating_category_sheldon_rating_scales_path(@sheldon_rating_category)
+
+%h1
   = @sheldon_rating_scale.title
+  \- #{@sheldon_rating_category.description}
 
-%p
-  %b Sheldon rating category:
-  = @sheldon_rating_scale.sheldon_rating_category_id
-
-%p
-  %b Value:
-  = @sheldon_rating_scale.value
-
-%p
-  %b Description:
-  = @sheldon_rating_scale.description
-
-= link_to 'Edit', edit_sheldon_rating_scale_path(@sheldon_rating_scale)
-|
-\#{link_to 'Back', sheldon_rating_scales_path}
+.expandable-max
+  %p.description= raw @sheldon_rating_scale.description

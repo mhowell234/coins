@@ -3,9 +3,9 @@
 
 ## Origins
 
-Origin.find_or_create_by_id(:id => 1, :name => 'ebay')
-Origin.find_or_create_by_id(:id => 2, :name => 'Grandma Betty')
-Origin.find_or_create_by_id(:id => 3, :name => 'Raymond and Jane Howell')
+Origin.find_or_create_by_id(:id => 1, :name => 'ebay', :description => 'eBay')
+Origin.find_or_create_by_id(:id => 2, :name => 'Grandma Betty', :description => "Marnie's Grandma")
+Origin.find_or_create_by_id(:id => 3, :name => 'Raymond and Jane Howell', :description => "The Parents")
 
 
 ## Rating Agencies
@@ -101,7 +101,7 @@ PreciousMetal.find_or_create_by_id(:id => 3, :name => 'Copper', :symbol => 'Cu',
 PreciousMetal.find_or_create_by_id(:id => 4, :name => 'Manganese', :symbol => 'Mn', :unit => 'ton', :conversion_factor => 0.0000010000, :price_per_unit => 2405.0000000000, :price_per_gram => 0.0024050000)
 PreciousMetal.find_or_create_by_id(:id => 5, :name => 'Nickel', :symbol => 'Ni', :unit => 'pound', :conversion_factor => 0.0022050000, :price_per_unit => 7.5600000000, :price_per_gram => 0.0166669470)
 PreciousMetal.find_or_create_by_id(:id => 6, :name => 'Zinc', :symbol => 'Zn', :unit => 'pound', :conversion_factor => 0.0022050000, :price_per_unit => 0.8400000000, :price_per_gram => 0.0018518830)
-PreciousMetal.find_or_create_by_id(:id => 7, :name => 'Tin', :symbol => 'Sn', :unit => '', :conversion_factor => :null, :price_per_unit => :null, :price_per_gram => :null)
+PreciousMetal.find_or_create_by_id(:id => 7, :name => 'Tin', :symbol => 'Sn', :unit => '', :conversion_factor => 0.00, :price_per_unit => 0.00, :price_per_gram => 0.00)
 PreciousMetal.find_or_create_by_id(:id => 8, :name => 'Platinum', :symbol => 'Pt', :unit => 'ounce', :conversion_factor => 0.0321510000, :price_per_unit => 1575.5000000000, :price_per_gram => 50.6535012683)
 
 ## Mints

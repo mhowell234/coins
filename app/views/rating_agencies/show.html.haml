@@ -1,13 +1,14 @@
 %p#notice= notice
 
-%p
-  %b Name:
+.actions
+  %span.edit= link_to 'Edit', edit_rating_agency_path(@rating_agency)
+  |
+  %span.delete= link_to 'Delete', rating_agency_path(@rating_agency), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.back= link_to 'Back', rating_agencies_path
+
+%h1
   = @rating_agency.name
 
-%p
-  %b Full name:
-  = @rating_agency.full_name
-
-= link_to 'Edit', edit_rating_agency_path(@rating_agency)
-|
-\#{link_to 'Back', rating_agencies_path}
+.expandable-max
+  %p.description= raw @rating_agency.full_name

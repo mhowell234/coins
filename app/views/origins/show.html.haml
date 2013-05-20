@@ -1,9 +1,14 @@
 %p#notice= notice
 
-%p
-  %b Name:
+.actions
+  %span.edit= link_to 'Edit', edit_origin_path(@origin)
+  |
+  %span.delete= link_to 'Delete', origin_path(@origin), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.back= link_to 'Back', origins_path
+
+%h1
   = @origin.name
 
-= link_to 'Edit', edit_origin_path(@origin)
-|
-\#{link_to 'Back', origins_path}
+.expandable-max
+  %p.description= raw @origin.description

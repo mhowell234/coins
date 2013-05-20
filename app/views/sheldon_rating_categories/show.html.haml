@@ -1,25 +1,35 @@
 %p#notice= notice
+.actions
+  %span.add= link_to "New #{@sheldon_rating_category.title} Scale", new_sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category)
+  |
+  %span.edit= link_to 'Edit', edit_sheldon_rating_category_path(@sheldon_rating_category)
+  |
+  %span.back= link_to 'Back', sheldon_rating_categories_path
 
-%p
-  %b Title:
-  = @sheldon_rating_category.title
+%h1= link_to "#{@sheldon_rating_category.title} Category", @sheldon_rating_category
 
-%p
-  %b Description:
-  = @sheldon_rating_category.description
+%p.description= raw @sheldon_rating_category.description
 
-%p
-  %b Start:
-  = @sheldon_rating_category.start
+- if !@sheldon_rating_category.sheldon_rating_scales.empty?
 
-%p
-  %b End:
-  = @sheldon_rating_category.end
+  %dl
+    - for scale in @sheldon_rating_category.sheldon_rating_scales
+      %dt
+        = link_to scale.title, [@sheldon_rating_category, scale]
 
-%p
-  %b Special order:
-  = @sheldon_rating_category.special_order
+        .actions
+          %span.edit= link_to 'Edit', edit_sheldon_rating_category_sheldon_rating_scale_path(@sheldon_rating_category, scale)
+          |
+          %span.delete= link_to 'Delete', [@sheldon_rating_category, scale], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'Edit', edit_sheldon_rating_category_path(@sheldon_rating_category)
-|
-\#{link_to 'Back', sheldon_rating_categories_path}
+
+
+      %dd
+        .expandable
+          %p= raw scale.description
+  %br/
+- else
+  %p
+    = @sheldon_rating_category.title
+    doesn't have any items yet.
+        

@@ -1,21 +1,21 @@
+.actions
+  %span.add= link_to '<< Create New >>', new_rating_agency_path
+
 %h1 Rating Agencies
 
-%table
-  %tr
-    %th Name
-    %th Full name
-    %th
-    %th
-    %th
+%dl
+  - @rating_agencies.each do |agency|
 
-  - @rating_agencies.each do |rating_agency|
-    %tr
-      %td= rating_agency.name
-      %td= rating_agency.full_name
-      %td= link_to 'Show', rating_agency
-      %td= link_to 'Edit', edit_rating_agency_path(rating_agency)
-      %td= link_to 'Destroy', rating_agency, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %dt
+      = link_to agency.name, agency
 
+      .actions
+        %span.edit= link_to 'Edit', edit_rating_agency_path(agency)
+        |
+        %span.delete= link_to 'Delete', agency, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %dd.expandable
+      %p= raw agency.full_name
+
+.visualClear
 %br/
-
-= link_to 'New Rating agency', new_rating_agency_path

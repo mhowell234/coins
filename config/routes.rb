@@ -1,17 +1,19 @@
 Coins::Application.routes.draw do
 
-
-  resources :origins
-  resources :precious_metals
-  resources :rating_agencies
-  resources :sheldon_rating_scales
-  resources :sheldon_rating_categories
-
   root :to=> 'static_pages#home'
 
   match '/help',    :to=> 'static_pages#help'
   match '/about',   :to=> 'static_pages#about'
   match '/admin',   :to=> 'static_pages#admin'
+  
+
+  resources :origins
+  resources :precious_metals
+  resources :rating_agencies
+  
+  resources :sheldon_rating_categories do
+    resources :sheldon_rating_scales
+  end
   
   resources :mints
   resources :coin_values do

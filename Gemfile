@@ -6,6 +6,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem "haml", "~> 4.0.2"
+gem 'haml-rails'
 
 
 # Gems used only for assets and not required
