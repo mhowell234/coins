@@ -1,0 +1,27 @@
+%p#notice= notice
+.actions
+  %span.add= link_to "New #{@coin_value.name} Coin", new_coin_value_coin_path(@coin_value)
+  |
+  %span.edit= link_to 'Edit', edit_coin_value_path(@coin_value)
+  |
+  %span.back= link_to 'Back', coin_values_path
+
+%h1= link_to @coin_value.name, @coin_value
+
+%p.description= raw @coin_value.description
+
+%p.hide
+  %b Value:
+  = @coin_value.value
+
+%dl
+  - for coin in @coin_value.coins
+    %dt
+      = link_to coin.name, [@coin_value, coin]
+      %section= coin.years
+    %dd
+      - if coin.has_photo?
+        %p.align-right
+          = image_tag coin.photo_path, :width => '150'
+      .expandable
+        %p= raw coin.description

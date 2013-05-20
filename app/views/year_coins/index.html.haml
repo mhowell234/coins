@@ -1,0 +1,23 @@
+%h1 Listing Coins for Year
+%table
+  %tr
+    %th Coin
+    %th Year
+    %th Additional Info
+    %th Is Gold?
+    %th Is Silver?
+    %th
+    %th
+    %th
+  - @year_coins.each do |year_coin|
+    %tr
+      %td= year_coin.coin_id
+      %td= year_coin.year
+      %td= year_coin.additional_info
+      %td= year_coin.is_gold
+      %td= year_coin.is_silver
+      %td= link_to 'Show', year_coin
+      %td= link_to 'Edit', edit_year_coin_path(year_coin)
+      %td= link_to 'Destroy', year_coin, :method => :delete, :data => { :confirm => 'Are you sure?' }
+%br/
+= link_to 'New Year coin', new_year_coin_path

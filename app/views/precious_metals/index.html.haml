@@ -1,0 +1,29 @@
+%h1 Precious Metals
+
+%table
+  %tr
+    %th Name
+    %th Symbol
+    %th Unit
+    %th Conversion factor
+    %th Price per unit
+    %th Price per gram
+    %th
+    %th
+    %th
+
+  - @precious_metals.each do |precious_metal|
+    %tr
+      %td= precious_metal.name
+      %td= precious_metal.symbol
+      %td= precious_metal.unit
+      %td= precious_metal.conversion_factor
+      %td= precious_metal.price_per_unit
+      %td= precious_metal.price_per_gram
+      %td= link_to 'Show', precious_metal
+      %td= link_to 'Edit', edit_precious_metal_path(precious_metal)
+      %td= link_to 'Destroy', precious_metal, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/
+
+= link_to 'New Precious metal', new_precious_metal_path

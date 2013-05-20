@@ -1,0 +1,20 @@
+%h1 Listing coin_attribute_types
+
+%table
+  %tr
+    %th Coin attribute type
+    %th Value
+    %th
+    %th
+    %th
+
+  - @coin_attribute_types.each do |coin_attribute_type|
+    %tr
+      %td= coin_attribute_type.value
+      %td= link_to 'Show', coin_attribute_type
+      %td= link_to 'Edit', edit_coin_attribute_type_path(coin_attribute_type)
+      %td= link_to 'Destroy', coin_attribute_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/
+
+= link_to 'New Coin attribute type', new_coin_attribute_type_path

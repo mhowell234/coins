@@ -1,0 +1,27 @@
+%h1 Sheldon Rating Categories
+
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Start
+    %th End
+    %th Special order
+    %th
+    %th
+    %th
+
+  - @sheldon_rating_categories.each do |sheldon_rating_category|
+    %tr
+      %td= sheldon_rating_category.title
+      %td= sheldon_rating_category.description
+      %td= sheldon_rating_category.start
+      %td= sheldon_rating_category.end
+      %td= sheldon_rating_category.special_order
+      %td= link_to 'Show', sheldon_rating_category
+      %td= link_to 'Edit', edit_sheldon_rating_category_path(sheldon_rating_category)
+      %td= link_to 'Destroy', sheldon_rating_category, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/
+
+= link_to 'New Sheldon rating category', new_sheldon_rating_category_path

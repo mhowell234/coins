@@ -1,0 +1,23 @@
+.actions
+  %span.add= link_to '<< Create New >>', new_coin_value_path
+
+%h1 Coins By Type
+
+%dl
+  - @coin_values.each do |coin_value|
+
+    %dt
+      = link_to coin_value.name, coin_value
+
+      %section= coin_value.years
+
+      .actions
+        %span.edit= link_to 'Edit', edit_coin_value_path(coin_value)
+        |
+        %span.delete= link_to 'Delete', coin_value, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+    %dd.expandable
+      %p= raw coin_value.description
+
+.visualClear
+%br/

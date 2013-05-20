@@ -1,0 +1,25 @@
+%h1 Mints
+
+%table
+  %tr
+    %th Name
+    %th Symbol
+    %th Always Present?
+    %th Comments
+    %th
+    %th
+    %th
+
+  - @mints.each do |mint|
+    %tr
+      %td= mint.name
+      %td= mint.symbol
+      %td= mint.always_present
+      %td= mint.comments
+      %td= link_to 'Show', mint
+      %td= link_to 'Edit', edit_mint_path(mint)
+      %td= link_to 'Destroy', mint, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/
+
+= link_to 'New Mint', new_mint_path

@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Coin:
+  = @coin_attribute.coin_id
+
+%p
+  %b Coin attribute type id:
+  = @coin_attribute.coin_attribute_type_id
+
+%p
+  %b Coin attribute value:
+  = @coin_attribute.coin_attribute_value
+
+= link_to 'Edit', edit_coin_attribute_path(@coin_attribute)
+|
+\#{link_to 'Back', coin_attributes_path}

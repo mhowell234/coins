@@ -1,0 +1,22 @@
+%p#notice= notice
+
+.actions
+  %span.edit= link_to 'Edit', edit_coin_value_coin_path(@coin_value)
+  |
+  %span.delete= link_to 'Delete', coin_value_coin_path(@coin_value), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.back= link_to 'Back', coin_value_coins_path(@coin_value)
+
+%h1
+  = @coin.name
+  \- #{@coin.coin_value.name}
+
+%p.field.data-info
+  (#{@coin.years})
+
+- if @coin.has_photo?
+  %p.align-right
+    = image_tag @coin.photo_path, :width => '300'
+
+.expandable-max
+  %p.description= raw @coin.description

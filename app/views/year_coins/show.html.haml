@@ -1,0 +1,19 @@
+%p#notice= notice
+%p
+  %b Coin:
+  = @year_coin.coin_id
+%p
+  %b Year:
+  = @year_coin.year
+%p
+  %b Additional Info:
+  = @year_coin.additional_info
+%p
+  %b Is Gold?:
+  = @year_coin.is_gold
+%p
+  %b Is Silver?:
+  = @year_coin.is_silver
+= link_to 'Edit', edit_year_coin_path(@year_coin)
+|
+\#{link_to 'Back', year_coins_path}

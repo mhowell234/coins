@@ -1,0 +1,29 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @precious_metal.name
+
+%p
+  %b Symbol:
+  = @precious_metal.symbol
+
+%p
+  %b Unit:
+  = @precious_metal.unit
+
+%p
+  %b Conversion factor:
+  = @precious_metal.conversion_factor
+
+%p
+  %b Price per unit:
+  = @precious_metal.price_per_unit
+
+%p
+  %b Price per gram:
+  = @precious_metal.price_per_gram
+
+= link_to 'Edit', edit_precious_metal_path(@precious_metal)
+|
+\#{link_to 'Back', precious_metals_path}

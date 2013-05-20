@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @sheldon_rating_category.title
+
+%p
+  %b Description:
+  = @sheldon_rating_category.description
+
+%p
+  %b Start:
+  = @sheldon_rating_category.start
+
+%p
+  %b End:
+  = @sheldon_rating_category.end
+
+%p
+  %b Special order:
+  = @sheldon_rating_category.special_order
+
+= link_to 'Edit', edit_sheldon_rating_category_path(@sheldon_rating_category)
+|
+\#{link_to 'Back', sheldon_rating_categories_path}

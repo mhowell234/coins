@@ -1,0 +1,38 @@
+= form_for(@year_coin) do |f|
+
+  - if @year_coin.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@year_coin.errors.count, "error")
+        prohibited this year_coin from being saved:
+      %ul
+        - @year_coin.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :coin_id
+    %br/
+    = f.number_field :coin_id
+
+  .field
+    = f.label :year
+    %br/
+    = f.number_field :year
+
+  .field
+    = f.label :additional_info
+    %br/
+    = f.text_area :additional_info
+
+  .field
+    = f.label :is_gold
+    %br/
+    = f.number_field :is_gold
+
+  .field
+    = f.label :is_silver
+    %br/
+    = f.number_field :is_silver
+
+  .actions
+    = f.submit

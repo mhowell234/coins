@@ -1,0 +1,21 @@
+%h1 Rating Agencies
+
+%table
+  %tr
+    %th Name
+    %th Full name
+    %th
+    %th
+    %th
+
+  - @rating_agencies.each do |rating_agency|
+    %tr
+      %td= rating_agency.name
+      %td= rating_agency.full_name
+      %td= link_to 'Show', rating_agency
+      %td= link_to 'Edit', edit_rating_agency_path(rating_agency)
+      %td= link_to 'Destroy', rating_agency, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br/
+
+= link_to 'New Rating agency', new_rating_agency_path

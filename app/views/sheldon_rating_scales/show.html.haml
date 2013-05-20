@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @sheldon_rating_scale.title
+
+%p
+  %b Sheldon rating category:
+  = @sheldon_rating_scale.sheldon_rating_category_id
+
+%p
+  %b Value:
+  = @sheldon_rating_scale.value
+
+%p
+  %b Description:
+  = @sheldon_rating_scale.description
+
+= link_to 'Edit', edit_sheldon_rating_scale_path(@sheldon_rating_scale)
+|
+\#{link_to 'Back', sheldon_rating_scales_path}

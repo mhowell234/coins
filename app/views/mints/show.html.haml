@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mint.name
+
+%p
+  %b Symbol:
+  = @mint.symbol
+
+%p
+  %b Always Present?:
+  = @mint.always_present
+
+%p
+  %b Comments:
+  = @mint.comments
+
+= link_to 'Edit', edit_mint_path(@mint)
+|
+\#{link_to 'Back', mints_path}
