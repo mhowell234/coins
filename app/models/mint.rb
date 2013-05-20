@@ -13,7 +13,7 @@
 
 class Mint < ActiveRecord::Base
 
-  attr_accessible :alwaysPresent, :comments, :name, :symbol
+  attr_accessible :always_present, :comments, :name, :symbol
 
   validates :name, :presence=> true
   validates :symbol, :presence=> true

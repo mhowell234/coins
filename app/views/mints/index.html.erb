@@ -1,10 +1,10 @@
-<h1>Listing mints</h1>
+<h1>Mints</h1>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Symbol</th>
-    <th>Alwayspresent</th>
+    <th>Always Present?</th>
     <th>Comments</th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
   <tr>
     <td><%= mint.name %></td>
     <td><%= mint.symbol %></td>
-    <td><%= mint.alwaysPresent %></td>
+    <td><%= mint.always_present %></td>
     <td><%= mint.comments %></td>
     <td><%= link_to 'Show', mint %></td>
     <td><%= link_to 'Edit', edit_mint_path(mint) %></td>

@@ -16,11 +16,11 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :start_year %><br />
+    <%= f.label :start_year, "Start Year" %><br />
     <%= f.number_field :start_year %>
   </div>
   <div class="field">
-    <%= f.label :end_year %><br />
+    <%= f.label :end_year, "End Year" %><br />
     <%= f.number_field :end_year %>
   </div>
   <div class="field">
@@ -28,7 +28,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :coin_value_id %><br />
+    <%= f.label :coin_value_id, "Coin Denomination" %><br />
     <%= f.select :coin_value_id, CoinValue.find(:all, :order=> "value DESC").collect {|c| [c.name, c.id]} %>
   </div>  
   <div class="field">

@@ -104,6 +104,17 @@ PreciousMetal.find_or_create_by_id(:id => 6, :name => 'Zinc', :symbol => 'Zn', :
 PreciousMetal.find_or_create_by_id(:id => 7, :name => 'Tin', :symbol => 'Sn', :unit => '', :conversion_factor => :null, :price_per_unit => :null, :price_per_gram => :null)
 PreciousMetal.find_or_create_by_id(:id => 8, :name => 'Platinum', :symbol => 'Pt', :unit => 'ounce', :conversion_factor => 0.0321510000, :price_per_unit => 1575.5000000000, :price_per_gram => 50.6535012683)
 
+## Mints
+
+Mint.find_or_create_by_id(:id => 1, :name => "Philadelphia", :symbol => "P", :always_present => false, :comments => "")
+Mint.find_or_create_by_id(:id => 2, :name => "New Orleans", :symbol => "O", :always_present => true, :comments => "")
+Mint.find_or_create_by_id(:id => 3, :name => "Dahlonega", :symbol => "D", :always_present => true, :comments => "Gold coins only")
+Mint.find_or_create_by_id(:id => 4, :name => "Charlotte", :symbol => "C", :always_present => true, :comments => "Gold coins only")
+Mint.find_or_create_by_id(:id => 5, :name => "San Francisco", :symbol => "S", :always_present => true, :comments => "")
+Mint.find_or_create_by_id(:id => 6, :name => "Carson City", :symbol => "CC", :always_present => true, :comments => "")
+Mint.find_or_create_by_id(:id => 7, :name => "Denver", :symbol => "D", :always_present => true, :comments => "")
+Mint.find_or_create_by_id(:id => 8, :name => "West Point", :symbol => "W", :always_present => true, :comments => "")
+
 
 ## Coin Denominations
 

@@ -1,11 +1,11 @@
 Coins::Application.routes.draw do
 
 
-  resources :precious_metal
+  resources :origins
+  resources :precious_metals
+  resources :rating_agencies
   resources :sheldon_rating_scales
   resources :sheldon_rating_categories
-  resources :rating_agencies
-  resources :origins
 
   root :to=> 'static_pages#home'
 
