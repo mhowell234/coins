@@ -1,21 +1,16 @@
 %p#notice= notice
+.actions
+  %span.add= link_to "New Mint", new_mint_path
+  |
+  %span.edit= link_to 'Edit', edit_mint_path(@mint)
+  |
+  %span.back= link_to 'Back', mints_path
+
+%h1 #{@mint.name} (#{@mint.symbol})
+
 
 %p
-  %b Name:
-  = @mint.name
+  %b Symbol Always present? #{@mint.always_present}
 
-%p
-  %b Symbol:
-  = @mint.symbol
-
-%p
-  %b Always Present?:
-  = @mint.always_present
-
-%p
-  %b Comments:
-  = @mint.comments
-
-= link_to 'Edit', edit_mint_path(@mint)
-|
-\#{link_to 'Back', mints_path}
+- if @mint.comments
+  %p= @mint.comments

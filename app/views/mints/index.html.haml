@@ -1,25 +1,23 @@
+.actions
+  %span.add= link_to '<< Create New >>', new_mint_path
+
 %h1 Mints
 
-%table
-  %tr
-    %th Name
-    %th Symbol
-    %th Always Present?
-    %th Comments
-    %th
-    %th
-    %th
-
+%dl
   - @mints.each do |mint|
-    %tr
-      %td= mint.name
-      %td= mint.symbol
-      %td= mint.always_present
-      %td= mint.comments
-      %td= link_to 'Show', mint
-      %td= link_to 'Edit', edit_mint_path(mint)
-      %td= link_to 'Destroy', mint, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %dt
+      = link_to "#{mint.name} (#{mint.symbol})", mint
 
+      .actions
+        %span.edit= link_to 'Edit', edit_mint_path(mint)
+        |
+        %span.delete= link_to 'Delete', [mint], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+
+    %dd.expandable
+      %p= "Symbol Always Present?: #{mint.always_present}"
+      - if mint.comments
+        %p= mint.comments
+      
 %br/
 
-= link_to 'New Mint', new_mint_path
