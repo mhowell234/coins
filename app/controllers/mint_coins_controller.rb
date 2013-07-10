@@ -9,6 +9,8 @@ class MintCoinsController < ApplicationController
   def index
     @mint_coins = @coin.mint_coins
 
+    @mint_coins_by_grouping = mint_coins_by_grouping
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @mint_coins }
@@ -86,8 +88,38 @@ class MintCoinsController < ApplicationController
     end
   end
   
-  
   private
+
+  def mint_coins_by_grouping
+    mint_coins = @coin.mint_coins
+
+    grouping = Array.new
+    
+    grouping_hash = Hash.new
+    grouping_hash['title'] = ''
+    grouping_hash['mint_coins'] = Array.new
+    
+    mint_coins.each do |mint_coin|
+      if mint_coin.year_grouping != grouping_hash['title'] then
+        if grouping_hash['mint_coins'].length > 0 then
+          grouping << grouping_hash
+        end
+        
+        grouping_hash = Hash.new
+        grouping_hash['title'] = mint_coin.year_grouping
+        grouping_hash['mint_coins'] = Array.new
+      end
+     
+      grouping_hash['mint_coins'] << mint_coin        
+    end
+    
+    if grouping_hash['mint_coins'].length > 0 then
+      grouping << grouping_hash
+    end
+    
+    return grouping
+  end
+    
   
   # get_coin_value_and_coin converts the coin_value_id given by routing into 
   # a @coin_value object, for use here and in the view.

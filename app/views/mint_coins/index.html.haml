@@ -5,24 +5,25 @@
 
 %h1= link_to "#{@coin.name} - #{@coin_value.name}", [@coin_value, @coin]
 
-%table
-  %tr
-    %th Coin
-    %th Year grouping
-    %th Number minted
-    %th Number proof minted
-    %th
-    %th
-
-  - @mint_coins.each do |mint_coin|
+- @mint_coins_by_grouping.each do |grouping|
+  - if grouping['title'] != ''
+    %h2= grouping['title']
+  %table
     %tr
-      %td= link_to mint_coin.title, [@coin_value, @coin, mint_coin]
-      %td= mint_coin.year_grouping
-      %td= number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
-      %td= mint_coin.number_proof_minted
-      %td= link_to 'Edit', edit_coin_value_coin_mint_coin_path(@coin_value, @coin, mint_coin)
-      %td= link_to 'Destroy', [@coin_value, @coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+      %th Coin
+      %th # Minted
+      %th # Proof Minted
+      %th
+      %th
+    - grouping['mint_coins'].each do |mint_coin|
+      %tr
+        %td= link_to mint_coin.title, [@coin_value, @coin, mint_coin]
+        %td= number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
+        %td= number_with_delimiter(mint_coin.number_proof_minted, :delimiter => ',')
+        %td= link_to 'Edit', edit_coin_value_coin_mint_coin_path(@coin_value, @coin, mint_coin)
+        %td= link_to 'Destroy', [@coin_value, @coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
+  
 %br
 
 = link_to 'New Mint coin', new_coin_value_coin_mint_coin_path

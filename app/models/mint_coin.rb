@@ -18,5 +18,4 @@ class MintCoin < ActiveRecord::Base
     
     return title
   end
-
 end
