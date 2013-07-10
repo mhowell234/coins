@@ -1,8 +1,14 @@
 class CoinAttributesController < ApplicationController
+
+
+  # Uses coin_value_id to create @coin_value and @coin objects
+  before_filter :get_coin_value_and_coin
+
   # GET /coin_attributes
   # GET /coin_attributes.json
   def index
-    @coin_attributes = CoinAttribute.all
+    @coin_attributes = @coin.coin_attributes
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +19,7 @@ class CoinAttributesController < ApplicationController
   # GET /coin_attributes/1
   # GET /coin_attributes/1.json
   def show
-    @coin_attribute = CoinAttribute.find(params[:id])
+    @coin_attribute = @coin.coin_attributes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +30,7 @@ class CoinAttributesController < ApplicationController
   # GET /coin_attributes/new
   # GET /coin_attributes/new.json
   def new
-    @coin_attribute = CoinAttribute.new
+    @coin_attribute = @coin.coin_attributes.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,17 +40,18 @@ class CoinAttributesController < ApplicationController
 
   # GET /coin_attributes/1/edit
   def edit
-    @coin_attribute = CoinAttribute.find(params[:id])
+    @coin_attribute = @coin.coin_attributes.find(params[:id])
   end
 
   # POST /coin_attributes
   # POST /coin_attributes.json
   def create
-    @coin_attribute = CoinAttribute.new(params[:coin_attribute])
+    @coin_attribute = @coin.coin_attributes.build(params[:coin_attribute])
 
+  
     respond_to do |format|
       if @coin_attribute.save
-        format.html { redirect_to @coin_attribute, :notice => 'Coin attribute was successfully created.' }
+        format.html { redirect_to coin_value_coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully created.' }
         format.json { render :json => @coin_attribute, :status => :created, :location => @coin_attribute }
       else
         format.html { render :action => "new" }
@@ -56,11 +63,11 @@ class CoinAttributesController < ApplicationController
   # PUT /coin_attributes/1
   # PUT /coin_attributes/1.json
   def update
-    @coin_attribute = CoinAttribute.find(params[:id])
-
+    @coin_attribute = @coin.coin_attributes.find(params[:id])
+  
     respond_to do |format|
       if @coin_attribute.update_attributes(params[:coin_attribute])
-        format.html { redirect_to @coin_attribute, :notice => 'Coin attribute was successfully updated.' }
+        format.html { redirect_to coin_value_coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -72,12 +79,24 @@ class CoinAttributesController < ApplicationController
   # DELETE /coin_attributes/1
   # DELETE /coin_attributes/1.json
   def destroy
-    @coin_attribute = CoinAttribute.find(params[:id])
+    @coin_attribute = @coin.coin_attributes.find(params[:id])
     @coin_attribute.destroy
 
     respond_to do |format|
-      format.html { redirect_to coin_attributes_url }
+      format.html { redirect_to coin_value_coin_coin_attributes_path([@coin]) }
       format.json { head :no_content }
     end
   end
+  
+  
+  private
+  
+  # get_coin_value_and_coin converts the coin_value_id given by routing into 
+  # a @coin_value object, for use here and in the view.
+  def get_coin_value_and_coin
+    @coin_value = CoinValue.find(params[:coin_value_id])
+    @coin = @coin_value.coins.find(params[:coin_id])
+  end
+  
+  
 end

@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Coin:
+  = @mint_coin.coin_id
+%p
+  %b Year:
+  = @mint_coin.year
+%p
+  %b Year grouping:
+  = @mint_coin.year_grouping
+%p
+  %b Mint:
+  = @mint_coin.mint_id
+%p
+  %b Mint grouping:
+  = @mint_coin.mint_grouping
+%p
+  %b Number minted:
+  = @mint_coin.number_minted
+%p
+  %b Number proof minted:
+  = @mint_coin.number_proof_minted
+%p
+  %b Is gold:
+  = @mint_coin.is_gold
+%p
+  %b Is silver:
+  = @mint_coin.is_silver
+
+= link_to 'Edit', edit_coin_value_coin_mint_coin_path(@coin_value)
+\|
+= link_to 'Back', coin_value_coin_mint_coins_path

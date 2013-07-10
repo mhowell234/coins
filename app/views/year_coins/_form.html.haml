@@ -1,4 +1,4 @@
-= form_for(@year_coin) do |f|
+= form_for([@coin_value, @coin, @year_coin]) do |f|
 
   - if @year_coin.errors.any?
     #error_explanation
@@ -9,15 +9,12 @@
         - @year_coin.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :coin_id
-    %br/
-    = f.number_field :coin_id
+  = f.hidden_field :coin_id, :value => @coin.id
 
   .field
     = f.label :year
     %br/
-    = f.number_field :year
+    = select_year(Date.today, :start_year => Time.now.year, :end_year => 1776, :field_name => 'year')
 
   .field
     = f.label :additional_info
@@ -25,14 +22,20 @@
     = f.text_area :additional_info
 
   .field
-    = f.label :is_gold
+    = f.label "Is Gold?"
     %br/
-    = f.number_field :is_gold
+    = f.radio_button :is_gold, "1" 
+    = f.label :is_gold, "Yes ", :value => "1"
+    = f.radio_button :is_gold, "0"
+    = f.label :is_gold, "No", :value => "0"
 
   .field
-    = f.label :is_silver
+    = f.label "Is Silver?"
     %br/
-    = f.number_field :is_silver
+    = f.radio_button :is_silver, "1" 
+    = f.label :is_silver, "Yes ", :value => "1"
+    = f.radio_button :is_silver, "0"
+    = f.label :is_silver, "No", :value => "0"
 
   .actions
     = f.submit

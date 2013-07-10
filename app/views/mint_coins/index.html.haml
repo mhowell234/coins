@@ -1,0 +1,28 @@
+.actions
+  %span.add= link_to "New #{@coin.name} Coin", new_coin_value_coin_mint_coin_path(@coin_value)
+  |
+  %span.back= link_to 'Back', [@coin_value, @coin]
+
+%h1= link_to "#{@coin.name} - #{@coin_value.name}", [@coin_value, @coin]
+
+%table
+  %tr
+    %th Coin
+    %th Year grouping
+    %th Number minted
+    %th Number proof minted
+    %th
+    %th
+
+  - @mint_coins.each do |mint_coin|
+    %tr
+      %td= link_to mint_coin.title, [@coin_value, @coin, mint_coin]
+      %td= mint_coin.year_grouping
+      %td= number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
+      %td= mint_coin.number_proof_minted
+      %td= link_to 'Edit', edit_coin_value_coin_mint_coin_path(@coin_value, @coin, mint_coin)
+      %td= link_to 'Destroy', [@coin_value, @coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mint coin', new_coin_value_coin_mint_coin_path

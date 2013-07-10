@@ -1,13 +1,13 @@
 class YearCoinsController < ApplicationController
 
-  # Uses coin_id to create a @coin object
-  before_filter :get_coin
+  # Uses coin_value_id to create @coin_value and @coin objects
+  before_filter :get_coin_value_and_coin
 
 
   # GET /year_coins
   # GET /year_coins.json
   def index
-    @year_coins = @coins.year_coins
+    @year_coins = @coin.year_coins
 
     respond_to do |format|
       format.html # index.html.erb
@@ -30,7 +30,10 @@ class YearCoinsController < ApplicationController
   # GET /year_coins/new.json
   def new
     @coin = Coin.find(params[:coin_id])
-    @year_coin = @coin.coins.build
+    @year_coin = @coin.year_coins.build
+
+    @year_coin.is_silver = 0
+    @year_coin.is_gold = 0
 
     respond_to do |format|
       format.html # new.html.erb
@@ -91,11 +94,11 @@ class YearCoinsController < ApplicationController
   
   private
   
-  # get_coin converts the coin_id given by routing into 
-  # a @coin object, for use here and in the view.
-  def get_coin
-    @coin = Coin.find(params[:coin_id])
+  # get_coin_value_and_coin converts the coin_value_id given by routing into 
+  # a @coin_value object, for use here and in the view.
+  def get_coin_value_and_coin
+    @coin_value = CoinValue.find(params[:coin_value_id])
+    @coin = @coin_value.coins.find(params[:coin_id])
   end
-  
-    
+
 end

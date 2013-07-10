@@ -1,0 +1,48 @@
+= form_for([@coin_value, @coin, @mint_coin]) do |f|
+  - if @mint_coin.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mint_coin.errors.count, "error")} prohibited this mint_coin from being saved:"
+      %ul
+        - @mint_coin.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :coin_id, :value => @coin.id
+
+  .field
+    = f.label :year
+    %br/
+    
+    = select_year(@mint_coin.year || Date.today, :start_year => Time.now.year, :end_year => 1776, :field_name => 'year', :prefix => 'mint_coin')
+
+  .field
+    = f.label :mint_id, "Mint"
+    %br/
+    = f.select :mint_id, Mint.find(:all, :order=> "name ASC").collect {|c| [c.name, c.id]}
+    
+
+  .field
+    = f.label :year_grouping
+    = f.text_field :year_grouping
+    
+  .field
+    = f.label :mint_grouping
+    = f.text_field :mint_grouping
+
+  .field
+    = f.label :number_minted
+    = f.number_field :number_minted
+
+  .field
+    = f.label :number_proof_minted
+    = f.number_field :number_proof_minted
+
+  .field
+    = f.label :is_gold
+    = f.check_box :is_gold
+
+  .field
+    = f.label :is_silver
+    = f.check_box :is_silver
+
+  .actions
+    = f.submit 'Save'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520040055) do
+ActiveRecord::Schema.define(:version => 20130709071848) do
 
   create_table "coin_attribute_types", :force => true do |t|
     t.text     "value"
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(:version => 20130520040055) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "coin_years", :force => true do |t|
+    t.integer  "coin_id"
+    t.integer  "year"
+    t.text     "additional_info"
+    t.integer  "is_gold"
+    t.integer  "is_silver"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "coins", :force => true do |t|
     t.string   "name"
     t.integer  "start_year"
@@ -43,6 +53,20 @@ ActiveRecord::Schema.define(:version => 20130520040055) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "extension"
+  end
+
+  create_table "mint_coins", :force => true do |t|
+    t.integer  "coin_id"
+    t.integer  "year"
+    t.text     "year_grouping"
+    t.integer  "mint_id"
+    t.text     "mint_grouping"
+    t.integer  "number_minted"
+    t.integer  "number_proof_minted"
+    t.boolean  "is_gold"
+    t.boolean  "is_silver"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "mints", :force => true do |t|
