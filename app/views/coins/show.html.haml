@@ -1,6 +1,8 @@
 %p#notice= notice
 
 .actions
+  %span.add= link_to "New #{@coin.name} Coin", new_coin_value_coin_mint_coin_path(@coin_value, @coin)
+  |
   %span.edit= link_to 'Edit', edit_coin_value_coin_path(@coin_value)
   |
   %span.delete= link_to 'Delete', coin_value_coin_path(@coin_value), :method => :delete, :data => { :confirm => 'Are you sure?' }
