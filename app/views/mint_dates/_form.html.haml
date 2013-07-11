@@ -1,0 +1,20 @@
+= form_for [@mint, @mint_date] do |f|
+  - if @mint_date.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@mint_date.errors.count, "error")} prohibited this mint_date from being saved:"
+      %ul
+        - @mint_date.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :mint_id, :value => @mint.id
+
+  .field
+    = f.label :start_year
+    = select_year(@mint_date.start_year || Date.today, :start_year => Time.now.year, :end_year => 1776, :field_name => 'start_year', :prefix => 'mint_date')
+
+  .field
+    = f.label :end_year
+    = select_year(@mint_date.end_year || Date.today, :start_year => Time.now.year, :end_year => 1776, :field_name => 'end_year', :prefix => 'mint_date')
+
+  .actions
+    = f.submit 'Save'

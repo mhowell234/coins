@@ -117,6 +117,18 @@ carson_city_mint = Mint.create(:name => "Carson City", :symbol => "CC", :always_
 denver_mint = Mint.create(:name => "Denver", :symbol => "D", :always_present => true, :comments => "")
 west_point_mint = Mint.create(:name => "West Point", :symbol => "W", :always_present => true, :comments => "")
 
+## Mint Date Ranges
+
+MintDate.create(:mint_id => philadelphia_mint.id, :start_year => 1793, :end_year => 2013)
+MintDate.create(:mint_id => new_orleans_mint.id, :start_year => 1838, :end_year => 1861)
+MintDate.create(:mint_id => new_orleans_mint.id, :start_year => 1879, :end_year => 1909)
+MintDate.create(:mint_id => dahlonega_mint.id, :start_year => 1838, :end_year => 1861)
+MintDate.create(:mint_id => charlotte_mint.id, :start_year => 1838, :end_year => 1861)
+MintDate.create(:mint_id => san_francisco_mint.id, :start_year => 1854, :end_year => 2013)
+MintDate.create(:mint_id => carson_city_mint.id, :start_year => 1870, :end_year => 1893)
+MintDate.create(:mint_id => denver_mint.id, :start_year => 1906, :end_year => 2013)
+MintDate.create(:mint_id => west_point_mint.id, :start_year => 1984, :end_year => 2013)
+
 
 ## Coin Denominations
 

@@ -15,6 +15,8 @@ class Mint < ActiveRecord::Base
 
   attr_accessible :always_present, :comments, :name, :symbol
 
+  has_many :mint_dates
+
   validates :name, :presence=> true
   validates :symbol, :presence=> true
 

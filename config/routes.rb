@@ -6,7 +6,6 @@ Coins::Application.routes.draw do
   match '/about',   :to=> 'static_pages#about'
   match '/admin',   :to=> 'static_pages#admin'
   
-
   resources :origins
   resources :precious_metals
   resources :rating_agencies
@@ -15,7 +14,10 @@ Coins::Application.routes.draw do
     resources :sheldon_rating_scales
   end
   
-  resources :mints
+  resources :mints do
+    resources :mint_dates
+  end
+  
   resources :coin_values do
     resources :coins do
     

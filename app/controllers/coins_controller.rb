@@ -124,6 +124,5 @@ class CoinsController < ApplicationController
   def get_coin_value
     @coin_value = CoinValue.find(params[:coin_value_id])
   end
-  
-  
+    
 end

@@ -1,0 +1,2 @@
+module MintDatesHelper
+end

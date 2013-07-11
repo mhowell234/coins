@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Mint:
+  = @mint_date.mint_id
+%p
+  %b Start year:
+  = @mint_date.start_year
+%p
+  %b End year:
+  = @mint_date.end_year
+
+= link_to 'Edit', edit_mint_mint_date_path(@mint, @mint_date)
+\|
+= link_to 'Back', mint_mint_dates_path

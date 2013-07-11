@@ -14,3 +14,28 @@
 
 - if @mint.comments
   %p= @mint.comments
+
+
+- if @mint.mint_dates.size > 0
+  %h2 Date Ranges
+  %table.table
+    %thead
+      %tr
+        %th Start year
+        %th End year
+        %th
+        %th
+    %tbody
+      - @mint.mint_dates.each do |mint_date|
+        %tr
+          %td= mint_date.start_year
+          %td= mint_date.end_year
+          %td
+            %span.edit= link_to 'Edit', edit_mint_mint_date_path(@mint, mint_date)
+          %td
+            %span.delete= link_to 'Delete', [@mint, mint_date], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+
+= link_to 'New Date Range', new_mint_mint_date_path(@mint)

@@ -17,7 +17,6 @@ class Coin < ActiveRecord::Base
 
   belongs_to :coin_value
   has_many :coin_attributes
-  has_many :year_coins
   has_many :mint_coins
   
   validates :name, :presence=> true
