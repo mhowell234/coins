@@ -11,7 +11,6 @@
       %th Start year
       %th End year
       %th
-      %th
   %tbody
     - @mint_dates.each do |mint_date|
       %tr
@@ -19,7 +18,7 @@
         %td= mint_date.end_year
         %td
           %span.edit= link_to 'Edit', edit_mint_mint_date_path(@mint, mint_date)
-        %td
+          |
           %span.delete= link_to 'Delete', [@mint, mint_date], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
