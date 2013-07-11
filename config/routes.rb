@@ -1,8 +1,5 @@
 Coins::Application.routes.draw do
 
-  resources :mint_coins
-
-
   root :to=> 'static_pages#home'
 
   match '/help',    :to=> 'static_pages#help'
@@ -23,8 +20,7 @@ Coins::Application.routes.draw do
     resources :coins do
     
       resources :mint_coins
-      resources :year_coins
-
+  
       resources :coin_attributes do
         resources :coin_attribute_types
       end

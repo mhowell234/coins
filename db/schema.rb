@@ -122,14 +122,4 @@ ActiveRecord::Schema.define(:version => 20130709071848) do
     t.datetime "updated_at",                 :null => false
   end
 
-  create_table "year_coins", :force => true do |t|
-    t.integer  "coin_id"
-    t.integer  "year"
-    t.text     "additional_info"
-    t.integer  "is_gold"
-    t.integer  "is_silver"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
 end
