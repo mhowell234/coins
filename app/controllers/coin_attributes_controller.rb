@@ -2,7 +2,7 @@ class CoinAttributesController < ApplicationController
 
 
   # Uses coin_value_id to create @coin_value and @coin objects
-  before_filter :get_coin_value_and_coin
+  before_filter :get_coin
 
   # GET /coin_attributes
   # GET /coin_attributes.json
@@ -51,7 +51,7 @@ class CoinAttributesController < ApplicationController
   
     respond_to do |format|
       if @coin_attribute.save
-        format.html { redirect_to coin_value_coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully created.' }
+        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully created.' }
         format.json { render :json => @coin_attribute, :status => :created, :location => @coin_attribute }
       else
         format.html { render :action => "new" }
@@ -67,7 +67,7 @@ class CoinAttributesController < ApplicationController
   
     respond_to do |format|
       if @coin_attribute.update_attributes(params[:coin_attribute])
-        format.html { redirect_to coin_value_coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully updated.' }
+        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }
@@ -83,7 +83,7 @@ class CoinAttributesController < ApplicationController
     @coin_attribute.destroy
 
     respond_to do |format|
-      format.html { redirect_to coin_value_coin_coin_attributes_path([@coin]) }
+      format.html { redirect_to coin_coin_attributes_path([@coin]) }
       format.json { head :no_content }
     end
   end
@@ -91,11 +91,10 @@ class CoinAttributesController < ApplicationController
   
   private
   
-  # get_coin_value_and_coin converts the coin_value_id given by routing into 
-  # a @coin_value object, for use here and in the view.
-  def get_coin_value_and_coin
-    @coin_value = CoinValue.find(params[:coin_value_id])
-    @coin = @coin_value.coins.find(params[:coin_id])
+  # get_coin converts the coin_id given by routing into 
+  # a @coin object, for use here and in the view.
+  def get_coin
+    @coin = Coin.find(params[:coin_id])
   end
   
   

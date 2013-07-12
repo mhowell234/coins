@@ -74,7 +74,6 @@ class Coin < ActiveRecord::Base
     File.exists? photo_filename
   end
   
-  
   private
   
   # Called after saving, to write the uploaded image to the filesystem

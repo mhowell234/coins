@@ -19,15 +19,19 @@ Coins::Application.routes.draw do
   end
   
   resources :coin_values do
-    resources :coins do
-    
-      resources :mint_coins
-  
-      resources :coin_attributes do
-        resources :coin_attribute_types
-      end
-    end
+    resources :coins
   end
+  
+  resources :coins do  
+    resources :mint_coins
+    resources :coin_attributes
+  end
+
+  resources :coin_attribute_types do
+    resources :coin_attributes
+  end
+  
+  resources :coin_attributes
 
 
   # The priority is based upon order of creation:

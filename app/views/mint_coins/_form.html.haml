@@ -1,4 +1,4 @@
-= form_for([@coin_value, @coin, @mint_coin]) do |f|
+= form_for([@coin, @mint_coin]) do |f|
   - if @mint_coin.errors.any?
     #error_explanation
       %h2= "#{pluralize(@mint_coin.errors.count, "error")} prohibited this mint_coin from being saved:"

@@ -1,4 +1,4 @@
-= form_for([@coin_value, @coin, @coin_attribute]) do |f|
+= form_for([@coin, @coin_attribute]) do |f|
 
   - if @coin_attribute.errors.any?
     #error_explanation
@@ -12,9 +12,18 @@
   = f.hidden_field :coin_id, :value => @coin.id
 
   .field
-    = f.label :coin_attribute_type_id
+    = f.label "Type"
     %br/
-    = f.number_field :coin_attribute_type_id
+    - attribute_types = CoinAttributeType.find(:all, :order=> "value ASC").collect {|c| [c.value, c.id]}
+    - if attribute_types.size > 0 then
+      = f.select :coin_attribute_type_id, attribute_types
+    - else
+      %span.none-defined= link_to "No Types defined. Create One...", new_coin_attribute_type_url
+
+  .field
+    = f.label "Value"
+    %br/
+    = f.text_field :coin_attribute_value
 
   .actions
     = f.submit

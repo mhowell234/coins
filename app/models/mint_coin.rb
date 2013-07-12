@@ -2,7 +2,8 @@ class MintCoin < ActiveRecord::Base
   attr_accessible :coin_id, :is_gold, :is_silver, :mint_grouping, :mint_id, :number_minted, :number_proof_minted, :year, :year_grouping
 
   belongs_to :coin
-
+  belongs_to :mint
+  
   # Displays a readable year/mint name for this coin
   def title
     title = "#{year}"

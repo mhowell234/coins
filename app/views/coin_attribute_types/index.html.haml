@@ -1,20 +1,23 @@
-%h1 Listing coin_attribute_types
+.actions
+  %span.add= link_to "New Attribute Type", new_coin_attribute_type_path
 
-%table
-  %tr
-    %th Coin attribute type
-    %th Value
-    %th
-    %th
-    %th
+%h1 Coin Attribute Types
 
-  - @coin_attribute_types.each do |coin_attribute_type|
+- if @coin_attribute_types.size > 0
+  %table.table
     %tr
-      %td= coin_attribute_type.value
-      %td= link_to 'Show', coin_attribute_type
-      %td= link_to 'Edit', edit_coin_attribute_type_path(coin_attribute_type)
-      %td= link_to 'Destroy', coin_attribute_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Value
+      %th
 
+    - @coin_attribute_types.each do |coin_attribute_type|
+      %tr
+        %td= link_to coin_attribute_type.value, coin_attribute_type
+        %td
+          %span.edit= link_to 'Edit', edit_coin_attribute_type_path(coin_attribute_type)
+          |
+          %span.delete= link_to 'Delete', coin_attribute_type, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Attribute Types"
 %br/
 
-= link_to 'New Coin attribute type', new_coin_attribute_type_path

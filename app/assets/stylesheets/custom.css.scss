@@ -509,7 +509,13 @@ span {
   &.back, &.back a {
     color: orange;
     font-weight: bold;  
-  }  
+  }
+  
+  &.none-defined, &.none-defined a {
+    color: navy;
+    font-weight: bold;
+    padding-left: 1em;
+  }
 }
 
 .hide {
