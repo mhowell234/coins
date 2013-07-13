@@ -5,13 +5,13 @@ describe "coin_attributes/index" do
     assign(:coin_attributes, [
       stub_model(CoinAttribute,
         :coin_id => 1,
-        :coin_attribute_type => 2,
-        :coin_attribute_value => "MyText"
+        :attribute_type => 2,
+        :value => "MyText"
       ),
       stub_model(CoinAttribute,
         :coin_id => 1,
-        :coin_attribute_type => 2,
-        :coin_attribute_value => "MyText"
+        :attribute_type => 2,
+        :value => "MyText"
       )
     ])
   end

@@ -1,5 +1,7 @@
 .actions
   %span.add= link_to "New Attribute", new_coin_coin_attribute_path
+  |
+  %span.back= link_to 'Back', [@coin.coin_value, @coin]
 
 %h1 #{@coin.name} #{@coin.coin_value.name} Attributes
 
@@ -11,8 +13,8 @@
       %th
     - @coin_attributes.each do |coin_attribute|
       %tr
-        %td= link_to coin_attribute.coin_attribute_type.value, [@coin, coin_attribute]
-        %td= coin_attribute.coin_attribute_value
+        %td= coin_attribute.attribute_type.value
+        %td= coin_attribute.value
         %td
           %span.edit= link_to 'Edit', edit_coin_coin_attribute_path(@coin, coin_attribute)
           |

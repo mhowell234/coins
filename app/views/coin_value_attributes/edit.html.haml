@@ -1,0 +1,8 @@
+%h1
+  Editing #{@coin_value.name} Attribute
+
+= render 'form'
+
+= link_to 'Show', [@coin_value, @coin_value_attribute]
+\|
+= link_to 'Back', coin_value_coin_value_attributes_path(@coin_value)

@@ -1,6 +1,6 @@
 class CoinAttribute < ActiveRecord::Base
-  attr_accessible :coin_attribute_type_id, :coin_attribute_value, :coin_id
+  attr_accessible :attribute_type_id, :coin_id, :value
   
   belongs_to :coin
-  belongs_to :coin_attribute_type
+  belongs_to :attribute_type
 end

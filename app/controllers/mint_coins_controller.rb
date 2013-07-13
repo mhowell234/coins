@@ -120,7 +120,8 @@ class MintCoinsController < ApplicationController
     return grouping
   end
     
-  
+  private
+    
   # get_coin converts the coin_id given by routing into 
   # a @coin object, for use here and in the view.
   def get_coin

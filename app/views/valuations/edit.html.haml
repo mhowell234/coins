@@ -1,0 +1,7 @@
+%h1 Editing Valuation for #{@mint_coin.title} #{@mint_coin.coin.name}
+
+= render 'form'
+
+= link_to 'Show', [@mint_coin, @valuation]
+\|
+= link_to 'Back', mint_coin_valuations_path

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Mint coin:
+  = @valuation.mint_coin_id
+%p
+  %b Rating agency:
+  = @valuation.rating_agency_id
+%p
+  %b Year:
+  = @valuation.year
+%p
+  %b Sheldon rating scale:
+  = @valuation.sheldon_rating_scale_id
+%p
+  %b Value:
+  = @valuation.value
+
+= link_to 'Edit', edit_valuation_path(@valuation)
+\|
+= link_to 'Back', valuations_path

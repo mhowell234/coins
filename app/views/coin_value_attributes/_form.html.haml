@@ -1,0 +1,29 @@
+= form_for([@coin_value, @coin_value_attribute]) do |f|
+
+  - if @coin_value_attribute.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@coin_value_attribute.errors.count, "error")
+        prohibited this coin_value_attribute from being saved:
+      %ul
+        - @coin_value_attribute.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :coin_value_id, :value => @coin_value.id
+
+  .field
+    = f.label "Type"
+    %br/
+    - attribute_types = AttributeType.find(:all, :order=> "value ASC").collect {|c| [c.value, c.id]}
+    - if attribute_types.size > 0 then
+      = f.select :attribute_type_id, attribute_types
+    - else
+      %span.none-defined= link_to "No Types defined. Create One...", new_attribute_type_url
+
+  .field
+    = f.label "Value"
+    %br/
+    = f.text_field :value
+
+  .actions
+    = f.submit

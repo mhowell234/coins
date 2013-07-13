@@ -31,3 +31,86 @@
 = link_to 'Edit', edit_coin_mint_coin_path(@coin)
 \|
 = link_to 'Back', coin_mint_coins_path
+
+
+%br
+  
+
+%h2= "Attributes"
+.actions
+  %span.add= link_to "New Attribute", new_mint_coin_mint_coin_attribute_path(@mint_coin)
+
+- if @mint_coin.mint_coin_attributes.size > 0
+  %table.table
+    %thead
+      %tr
+        %th Type
+        %th Value
+        %th
+    %tbody
+      - @mint_coin.mint_coin_attributes.each do |attrib|
+        %tr
+          %td= attrib.attribute_type.value
+          %td= attrib.value
+          %td
+            %span.edit= link_to 'Edit', edit_mint_coin_mint_coin_attribute_path(@mint_coin, attrib)
+            |
+            %span.delete= link_to 'Delete', [@mint_coin, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Attributes Defined"
+
+%br
+
+  
+%h2= "Composition"
+.actions
+  %span.add= link_to "New Composition", new_mint_coin_composition_path(@mint_coin)
+
+- if @mint_coin.compositions.size > 0
+  %table.table
+    %thead
+      %tr
+        %th Metal
+        %th Percentage
+        %th
+    %tbody
+      - @mint_coin.compositions.each do |comp|
+        %tr
+          %td= comp.precious_metal.name
+          %td= comp.percentage
+          %td
+            %span.edit= link_to 'Edit', edit_mint_coin_composition_path(@mint_coin, comp)
+            |
+            %span.delete= link_to 'Delete', [@mint_coin, comp], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Compositions Defined"
+
+%h2= "Valuations"
+.actions
+  %span.add= link_to "New Valuation", new_mint_coin_valuation_path(@mint_coin)
+
+- if @mint_coin.valuations.size > 0
+  %table.table
+    %thead
+      %tr
+        %th Agency
+        %th Year
+        %th Rating
+        %th Value
+        %th
+    %tbody
+      - @mint_coin.valuations.each do |val|
+        %tr
+          %td= val.rating_agency.name
+          %td= val.year
+          %td= val.sheldon_rating_scale.title
+          %td= val.value
+          %td
+            %span.edit= link_to 'Edit', edit_mint_coin_valuation_path(@mint_coin, val)
+            |
+            %span.delete= link_to 'Delete', [@mint_coin, val], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Valuations Defined"

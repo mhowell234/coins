@@ -131,7 +131,8 @@ MintDate.create(:mint_id => west_point_mint.id, :start_year => 1984, :end_year =
 
 ## Coin Attribute Types
 
-ebay_group_coin_attrib_type = CoinAttributeType.create(:value => 'Ebay Group')
+ebay_group_attrib_type = AttributeType.create(:value => 'Ebay Group')
+weight_attrib_type = AttributeType.create(:value => 'Weight')
 
 ## Coin Denominations
 
@@ -147,42 +148,52 @@ eagle = CoinValue.create(:name => "Eagle", :value => 10.00, :description => "<p>
 
 half_eagle = CoinValue.create(:name => "Half Eagle", :value => 5.00, :description => "<p>The half eagle ($5 gold coin) was the first gold coin struck for the United States. It was authorized to be coined by the Act of April 2, 1792. The first type weighed 135 grains, of .91667 fineness. The weight was changed by the Act of June 28, 1834, to 129 grains, of .899225 fineness. Fineness became .900 by the Act of January 18, 1837.</p>")
 
-## Four-Dollar Gold Pieces
+### Four-Dollar Gold Pieces
 
 four_dollar_gold_piece = CoinValue.create(:name => "Four-Dollar Gold Piece", :value => 4.00, :description => "<p>The Four Dollar Gold Piece or Stella is a pattern coin, which is a coin made as an example of a proposed coin. There are two very different looking types made in both 1879 and 1880. Charles Barber designed one with a Liberty head with flowing hair and George Morgan designed one with a Liberty head with coiled hair. Both types have a common reverse, that is a star with the words \"One Stella-400 cents.\" The minting of both these \"patterns\" took on the air of a competition between the two designers as they solicited Members of Congress with examples of their designs.</p>
 
 <p>Stellas are very rare today, with the highest mintage being 415 pieces for the 1879 Flowing Hair piece. They were all struck as proofs and none were placed in circulation so most pieces encountered today are usually in a high state of preservation. Stellas are worth more than $50,000.</p>")
 
-## Three-Dollar Gold Piece
+### Three-Dollar Gold Piece
 
 three_dollar_gold_piece = CoinValue.create(:name => "Three-Dollar Gold Piece", :value => 3.00, :description => "<p>The three-dollar gold piece was authorized by the Act of February 21, 1853. Coinage was struck beginning in 1854. It was never popular and saw very little circulation.</p>")
 
-## Quarter Eagle
+### Quarter Eagle
 
 quarter_eagle = CoinValue.create(:name => "Quarter Eagle", :value => 2.50, :description => "<p>Although authorized by the Act of April 2, 1792, coinage of quarter eagles ($2.50 gold coins) was not begun until 1796.</p>")
 
-## Gold Dollar
+### Gold Dollar
 
 gold_dollar = CoinValue.create(:name => "Gold Dollar", :value => 1.00, :description => "<p>Coinage of the gold dollar was authorized by the Act of March 3, 1849. The weight was 25.8 grains, fineness .900. The first type, struck until 1854, is known as the Liberty Head type.</p>
 
 <p>In 1854, the piece was made larger in diameter and thinner. The design was changed to a feather headdress on a female, generally referred to as the Indian Princess Head type. In 1856 the type was changed slightly by enlarging the size of the head.</p>")
 
 
-## Silver and Related Dollar
+### Silver and Related Dollar
 
 silver_dollar = CoinValue.create(:name => "Silver and Related Dollar", :value => 1.00, :description => "<p>The silver dollar was authorized by Congress April 2, 1792. Its weight was specified at 416 grams and its fineness at .8924. The first issues appeared in 1794, and until 1804 all silver dollars had the value stamped on the edge: HUNDRED CENTS, ONE DOLLAR OR UNIT. After a lapse in coinage of the silver dollar during the period of 1804 to 1835, coins were made of either plain (1836 only) or reeded edges and the value was placed on the reverse side.</p>
 
 <p>The weight was changed by the law of January 18, 1837, to 412-1/2 grains, fineness .900. The coinage was discontinued by the Act of February 12, 1873, and reauthorized by the Act of February 28, 1878. The silver dollar was again discontinued after 1935, and since then copper-nickel and other base-metal pieces have been coined for circulation.</p>")
 
 
-## Half Dollar
+### Half Dollar
 
 half_dollar = CoinValue.create(:name => "Half Dollar", :value => 0.50, :description => "<p>The half dollar, authorized by the Act of April 2, 1792, was not minted until December, 1794. The weight of the half dollar was 208 grains and its fineness .8924 when first issued. This standard was not changed until 1837 when the Act of January 18, 1837, specified 206-1/4 gains, .900 fine. This fineness continued in use until 1965.</p>
 
 <p>Arrows at the date in 1853 indicate the reduction of weight to 192 grains. During that year only, rays were added to the reverse. Arrows remained in 1854 and 1855. In 1873 the weight was raised by .9 grains and arrows were again placed at the date.</p>")
 
 
+## Coin Value Attributes
 
+CoinValueAttribute.create(:coin_value_id => double_eagle.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39472')
+CoinValueAttribute.create(:coin_value_id => eagle.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39471')
+CoinValueAttribute.create(:coin_value_id => half_eagle.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39470')
+CoinValueAttribute.create(:coin_value_id => four_dollar_gold_piece.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39468')
+CoinValueAttribute.create(:coin_value_id => three_dollar_gold_piece.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39468')
+CoinValueAttribute.create(:coin_value_id => quarter_eagle.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '39469')
+CoinValueAttribute.create(:coin_value_id => gold_dollar.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '149937')
+CoinValueAttribute.create(:coin_value_id => silver_dollar.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '11975')
+CoinValueAttribute.create(:coin_value_id => half_dollar.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '11968')
 
 
 ## Coins
@@ -530,17 +541,17 @@ capped_bust_lettered_edge_half_dollar = Coin.create(:name => "Capped Bust, Lette
 
 ### Silver Dollar
 
-CoinAttribute.create(:coin_id => flowing_hair_silver_dollar.id,   :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11876')
-CoinAttribute.create(:coin_id => draped_bust_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11976')
-CoinAttribute.create(:coin_id => gobrecht_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '176964')
-CoinAttribute.create(:coin_id => liberty_seated_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11977')
-CoinAttribute.create(:coin_id => trade_dollar_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11978')
-CoinAttribute.create(:coin_id => morgan_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '39464')
-CoinAttribute.create(:coin_id => peace_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11980')
-CoinAttribute.create(:coin_id => eisenhower_silver_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11981')
-CoinAttribute.create(:coin_id => susan_b_anthony_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11982')
-CoinAttribute.create(:coin_id => sacagawea_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '11983')
-CoinAttribute.create(:coin_id => presidential_dollar.id, :coin_attribute_type_id => ebay_group_coin_attrib_type.id, :coin_attribute_value => '159713')
+CoinAttribute.create(:coin_id => flowing_hair_silver_dollar.id,   :attribute_type_id => ebay_group_attrib_type.id, :value => '11876')
+CoinAttribute.create(:coin_id => draped_bust_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11976')
+CoinAttribute.create(:coin_id => gobrecht_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '176964')
+CoinAttribute.create(:coin_id => liberty_seated_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11977')
+CoinAttribute.create(:coin_id => trade_dollar_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11978')
+CoinAttribute.create(:coin_id => morgan_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '39464')
+CoinAttribute.create(:coin_id => peace_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11980')
+CoinAttribute.create(:coin_id => eisenhower_silver_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11981')
+CoinAttribute.create(:coin_id => susan_b_anthony_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11982')
+CoinAttribute.create(:coin_id => sacagawea_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '11983')
+CoinAttribute.create(:coin_id => presidential_dollar.id, :attribute_type_id => ebay_group_attrib_type.id, :value => '159713')
 
 
 ## Mint Coins

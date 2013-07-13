@@ -3,6 +3,10 @@ class MintCoin < ActiveRecord::Base
 
   belongs_to :coin
   belongs_to :mint
+
+  has_many :mint_coin_attributes
+  has_many :compositions
+  has_many :valuations
   
   # Displays a readable year/mint name for this coin
   def title

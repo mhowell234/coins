@@ -1,0 +1,20 @@
+= form_for ([@mint_coin, @composition]) do |f|
+  - if @composition.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@composition.errors.count, "error")} prohibited this composition from being saved:"
+      %ul
+        - @composition.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :mint_coin_id, :value => @mint_coin.id
+
+  .field
+    = f.label "Metal"
+    = f.select :precious_metal_id, PreciousMetal.find(:all, :order=> "name ASC").collect {|m| [m.name, m.id]}
+
+  .field
+    = f.label :percentage
+    = f.text_field :percentage
+
+  .actions
+    = f.submit 'Save'

@@ -1,5 +1,11 @@
 Coins::Application.routes.draw do
 
+  resources :valuations
+
+
+  resources :compositions
+
+
   root :to=> 'static_pages#home'
 
   match '/help',    :to=> 'static_pages#help'
@@ -13,6 +19,12 @@ Coins::Application.routes.draw do
   resources :sheldon_rating_categories do
     resources :sheldon_rating_scales
   end
+
+  resources :attribute_types do
+    resources :coin_value_attributes
+    resources :coin_attributes
+    resources :mint_coin_attributes
+  end
   
   resources :mints do
     resources :mint_dates
@@ -20,6 +32,7 @@ Coins::Application.routes.draw do
   
   resources :coin_values do
     resources :coins
+    resources :coin_value_attributes
   end
   
   resources :coins do  
@@ -27,12 +40,17 @@ Coins::Application.routes.draw do
     resources :coin_attributes
   end
 
-  resources :coin_attribute_types do
-    resources :coin_attributes
+  resources :mint_coins do
+    resources :mint_coin_attributes
+    resources :compositions
+    resources :valuations
   end
   
+  resources :coin_value_attributes
   resources :coin_attributes
-
+  resources :mint_coin_attributes
+  resources :compositions
+  resources :valuations
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

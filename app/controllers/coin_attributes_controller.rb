@@ -1,7 +1,7 @@
 class CoinAttributesController < ApplicationController
 
 
-  # Uses coin_value_id to create @coin_value and @coin objects
+  # Uses coin_value_id to create the @coin object
   before_filter :get_coin
 
   # GET /coin_attributes
@@ -51,7 +51,7 @@ class CoinAttributesController < ApplicationController
   
     respond_to do |format|
       if @coin_attribute.save
-        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully created.' }
+        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Attribute was successfully created.' }
         format.json { render :json => @coin_attribute, :status => :created, :location => @coin_attribute }
       else
         format.html { render :action => "new" }
@@ -67,7 +67,7 @@ class CoinAttributesController < ApplicationController
   
     respond_to do |format|
       if @coin_attribute.update_attributes(params[:coin_attribute])
-        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Coin attribute was successfully updated.' }
+        format.html { redirect_to coin_coin_attributes_url([@coin]), :notice => 'Attribute was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render :action => "edit" }

@@ -1,0 +1,25 @@
+.actions
+  %span.add= link_to "New Attribute", new_mint_coin_mint_coin_attribute_path
+  |
+  %span.back= link_to 'Back', [@mint_coin.coin, @mint_coin]
+
+%h1 #{@mint_coin.title} Attributes
+
+- if @mint_coin.mint_coin_attributes.size > 0
+  %table.table
+    %tr
+      %th Type
+      %th Value
+      %th
+    - @mint_coin_attributes.each do |mint_coin_attribute|
+      %tr
+        %td= mint_coin_attribute.attribute_type.value
+        %td= mint_coin_attribute.value
+        %td
+          %span.edit= link_to 'Edit', edit_mint_coin_mint_coin_attribute_path(@mint_coin, mint_coin_attribute)
+          |
+          %span.delete= link_to 'Delete', [@mint_coin, mint_coin_attribute], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Attributes"
+%br/

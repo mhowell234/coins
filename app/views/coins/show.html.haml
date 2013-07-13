@@ -60,7 +60,12 @@
   
 %br
   
+
 %h2= "Attributes"
+
+.actions
+  %span.add= link_to "New Attribute", new_coin_coin_attribute_path(@coin)
+
 - if @coin.coin_attributes.size > 0
   %table.table
     %thead
@@ -71,8 +76,8 @@
     %tbody
       - @coin.coin_attributes.each do |attrib|
         %tr
-          %td= link_to attrib.coin_attribute_type.value, [@coin, attrib]
-          %td= attrib.coin_attribute_value
+          %td= attrib.attribute_type.value
+          %td= attrib.value
           %td
             %span.edit= link_to 'Edit', edit_coin_coin_attribute_path(@coin, attrib)
             |
@@ -80,4 +85,3 @@
 - else
   %p
     %b= "No Attributes Defined"
-%p= link_to "New Attribute", new_coin_coin_attribute_path(@coin)

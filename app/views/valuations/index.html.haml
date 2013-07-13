@@ -1,0 +1,31 @@
+.actions
+  %span.add= link_to "New #{@mint_coin.title} #{@mint_coin.coin.name} Valuation", new_mint_coin_valuation_path(@mint_coin)
+  |
+  %span.back= link_to 'Back', [@mint_coin.coin, @mint_coin]
+
+%h1= link_to "#{@mint_coin.title} - #{@mint_coin.coin.name}", [@mint_coin]
+
+
+- if @mint_coin.valuations.size > 0
+  %table.table
+    %thead
+      %tr
+        %th Rating Agency
+        %th Year
+        %th Rating
+        %th Value
+        %th
+    %tbody
+      - @mint_coin.valuations.each do |val|
+        %tr
+          %td= val.rating_agency.name
+          %td= val.year
+          %td= val.sheldon_rating_scale.title
+          %td= val.value
+          %td
+            %span.edit= link_to 'Edit', edit_mint_coin_valuation_path(@mint_coin, val)
+            |
+            %span.delete= link_to 'Delete', [@mint_coin, val], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Valuations Defined"

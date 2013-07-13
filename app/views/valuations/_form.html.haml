@@ -1,0 +1,29 @@
+= form_for ([@mint_coin, @valuation]) do |f|
+  - if @valuation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@valuation.errors.count, "error")} prohibited this valuation from being saved:"
+      %ul
+        - @valuation.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :mint_coin_id, :value => @mint_coin.id
+
+  .field
+    = f.label "Rating Agency"
+    = f.select :rating_agency_id, RatingAgency.find(:all, :order=> "name ASC").collect {|a| [a.name, a.id]}
+
+  .field
+    = f.label :year
+    = f.text_field :year
+
+  .field
+    = f.label "Rating"
+    = f.select :sheldon_rating_scale_id, 
+    SheldonRatingScale.find(:all, :order=> "value DESC").collect {|s| [s.title, s.id]}
+
+  .field
+    = f.label :value
+    = f.text_field :value
+
+  .actions
+    = f.submit 'Save'

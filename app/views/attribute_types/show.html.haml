@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Value:
+  = @attribute_type.value
+
+= link_to 'Edit', edit_attribute_type_path(@attribute_type)
+|
+\#{link_to 'Back', attribute_types_path}

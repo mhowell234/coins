@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Mint coin:
+  = @composition.mint_coin_id
+%p
+  %b Precious metal:
+  = @composition.precious_metal_id
+%p
+  %b Percentage:
+  = @composition.percentage
+
+= link_to 'Edit', edit_composition_path(@composition)
+\|
+= link_to 'Back', compositions_path

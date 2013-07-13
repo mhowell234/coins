@@ -4,8 +4,8 @@ describe "coin_attributes/show" do
   before(:each) do
     @coin_attribute = assign(:coin_attribute, stub_model(CoinAttribute,
       :coin_id => 1,
-      :coin_attribute_type => 2,
-      :coin_attribute_value => "MyText"
+      :attribute_type => 2,
+      :value => "MyText"
     ))
   end
 

@@ -10,9 +10,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130711045857) do
+ActiveRecord::Schema.define(:version => 20130713071248) do
 
-  create_table "coin_attribute_types", :force => true do |t|
+  create_table "attribute_types", :force => true do |t|
     t.text     "value"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -20,10 +20,18 @@ ActiveRecord::Schema.define(:version => 20130711045857) do
 
   create_table "coin_attributes", :force => true do |t|
     t.integer  "coin_id"
-    t.integer  "coin_attribute_type_id"
-    t.text     "coin_attribute_value"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
+    t.integer  "attribute_type_id"
+    t.text     "value"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "coin_value_attributes", :force => true do |t|
+    t.integer  "coin_value_id"
+    t.integer  "attribute_type_id"
+    t.string   "value"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "coin_values", :force => true do |t|
@@ -53,6 +61,22 @@ ActiveRecord::Schema.define(:version => 20130711045857) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "extension"
+  end
+
+  create_table "compositions", :force => true do |t|
+    t.integer  "mint_coin_id"
+    t.integer  "precious_metal_id"
+    t.float    "percentage"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "mint_coin_attributes", :force => true do |t|
+    t.integer  "attribute_type_id"
+    t.string   "value"
+    t.integer  "mint_coin_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "mint_coins", :force => true do |t|
@@ -128,6 +152,16 @@ ActiveRecord::Schema.define(:version => 20130711045857) do
     t.text     "description"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "valuations", :force => true do |t|
+    t.integer  "mint_coin_id"
+    t.integer  "rating_agency_id"
+    t.integer  "year"
+    t.integer  "sheldon_rating_scale_id"
+    t.float    "value"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
 end
