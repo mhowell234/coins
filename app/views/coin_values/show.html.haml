@@ -26,28 +26,30 @@
         %p= raw coin.description
         
 %br
-  
-%h2= "Attributes"
 
-.actions
-  %span.add= link_to "New Attribute", new_coin_value_coin_path(@coin_value)
+%div.grouping  
+  %h2= "Attributes"
 
-- if @coin_value.coin_value_attributes.size > 0
-  %table.table
-    %thead
-      %tr
-        %th Type
-        %th Value
-        %th
-    %tbody
-      - @coin_value.coin_value_attributes.each do |attrib|
-        %tr
-          %td= attrib.attribute_type.value
-          %td= attrib.value
-          %td
-            %span.edit= link_to 'Edit', edit_coin_value_coin_value_attribute_path(@coin_value, attrib)
-            |
-            %span.delete= link_to 'Delete', [@coin_value, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p
-    %b= "No Attributes Defined"
+  %div.grouping-data
+    .actions
+      %span.add= link_to "New Attribute", new_coin_value_coin_path(@coin_value)
+
+    - if @coin_value.coin_value_attributes.size > 0
+      %table.table
+        %thead
+          %tr
+            %th Type
+            %th Value
+            %th
+        %tbody
+          - @coin_value.coin_value_attributes.each do |attrib|
+            %tr
+              %td= attrib.attribute_type.value
+              %td= attrib.value
+              %td
+                %span.edit= link_to 'Edit', edit_coin_value_coin_value_attribute_path(@coin_value, attrib)
+                |
+                %span.delete= link_to 'Delete', [@coin_value, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      %p
+        %b= "No Attributes Defined"

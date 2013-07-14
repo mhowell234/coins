@@ -14,9 +14,13 @@ class MintCoin < ActiveRecord::Base
     
     mint = Mint.find(mint_id)
     if not mint.nil? and not mint.symbol.nil? and not mint.symbol.empty? then
-      title << mint.symbol
+      title << "-" << mint.symbol
     end
     
+    if not year_grouping.nil? and not year_grouping.empty? then
+      title << ", #{year_grouping}"
+    end
+      
     if not mint_grouping.nil? and not mint_grouping.empty? then
       title << ", #{mint_grouping}"
     end

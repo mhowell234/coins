@@ -23,64 +23,73 @@
   %p.description= raw @coin.description
   
 %div.visualClear
-  
-- @mint_coins_by_grouping.each do |grouping|
-  - if grouping['title'] != ''
-    %h2= grouping['title']
-  - else
-    %h2= 'Coins'
-  
-  %table.table
-    %thead
-      %tr
-        %th Coin
-        %th # Minted
-        %th # Proof Minted
-        %th
-    %tbody
-      - grouping['mint_coins'].each do |mint_coin|
-        %tr
-          %td= link_to mint_coin.title, [@coin, mint_coin]
-          %td
-            - if mint_coin.number_minted > 0 then
-              = number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
-            - else
-              %span.dash -
-          %td
-            - if mint_coin.number_proof_minted > 0 then
-              = number_with_delimiter(mint_coin.number_proof_minted, :delimiter => ',')
-            - else
-              %span.dash -
-          %td
-            %span.edit= link_to 'Edit', edit_coin_mint_coin_path(@coin, mint_coin)
-            |
-            %span.delete= link_to 'Delete', [@coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
-  %br
-  
 %br
+
+- expand_section = true
+
+- @mint_coins_by_grouping.each do |grouping|
+  - current_class = ''
+  - if expand_section == true then
+    - current_class = 'expand_on_load'
+    - expand_section = false
   
+  %div{:class => "grouping #{current_class}"}
+    - if grouping['title'] != ''
+      %h2= grouping['title']
+    - else
+      %h2= 'Coins'
+    
+    %div.grouping-data
+      %table.table
+        %thead
+          %tr
+            %th Coin
+            %th # Minted
+            %th # Proof Minted
+            %th
+        %tbody
+          - grouping['mint_coins'].each do |mint_coin|
+            %tr
+              %td= link_to mint_coin.title, [@coin, mint_coin]
+              %td
+                - if mint_coin.number_minted > 0 then
+                  = number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
+                - else
+                  %span.dash -
+              %td
+                - if mint_coin.number_proof_minted > 0 then
+                  = number_with_delimiter(mint_coin.number_proof_minted, :delimiter => ',')
+                - else
+                  %span.dash -
+              %td
+                %span.edit= link_to 'Edit', edit_coin_mint_coin_path(@coin, mint_coin)
+                |
+                %span.delete= link_to 'Delete', [@coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
+  
+  
+%div.grouping  
+  %h2= "Attributes"
 
-%h2= "Attributes"
+  %div.grouping-data
+    .actions
+      %span.add= link_to "New Attribute", new_coin_coin_attribute_path(@coin)
 
-.actions
-  %span.add= link_to "New Attribute", new_coin_coin_attribute_path(@coin)
-
-- if @coin.coin_attributes.size > 0
-  %table.table
-    %thead
-      %tr
-        %th Type
-        %th Value
-        %th
-    %tbody
-      - @coin.coin_attributes.each do |attrib|
-        %tr
-          %td= attrib.attribute_type.value
-          %td= attrib.value
-          %td
-            %span.edit= link_to 'Edit', edit_coin_coin_attribute_path(@coin, attrib)
-            |
-            %span.delete= link_to 'Delete', [@coin, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p
-    %b= "No Attributes Defined"
+    - if @coin.coin_attributes.size > 0
+      %table.table
+        %thead
+          %tr
+            %th Type
+            %th Value
+            %th
+        %tbody
+          - @coin.coin_attributes.each do |attrib|
+            %tr
+              %td= attrib.attribute_type.value
+              %td= attrib.value
+              %td
+                %span.edit= link_to 'Edit', edit_coin_coin_attribute_path(@coin, attrib)
+                |
+                %span.delete= link_to 'Delete', [@coin, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      %p
+        %b= "No Attributes Defined"

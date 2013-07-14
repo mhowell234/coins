@@ -69,9 +69,8 @@ h2 {
   font-size: 1.7em;
   letter-spacing: -1px;
   margin-bottom: 30px;
-  text-align: center;
+  margin-top: 1em;
   font-weight: normal;
-  color: $grayLight;
 }
 
 p {
@@ -485,9 +484,14 @@ div {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  padding: 10px;
+  /* padding: 10px; */
   margin-bottom: 15px;
+  margin-top: 5px;
   @include box_sizing;
+}
+
+input[type="submit"] {
+  padding: 10px;
 }
 
 input {
@@ -582,4 +586,63 @@ dt .actions {
 
 .photo-section, .photo-section a, .photo-section a:hover {
   background: transparent;
+}
+
+.grouping {
+  border: 1px solid #999;
+  border-radius: 1em;
+  clear: both;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.grouping h2 {
+  background: transparent url(/images/down-arrow-black.png) no-repeat 98% 1em;
+  border-radius: 1em;
+  font-weight: bold;
+  line-height: 30px;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-height: 30px;
+  padding: 1em 4em 1em 1em;
+  -moz-border-radius: 1em;
+  -webkit-border-radius: 1em;
+}
+
+.grouping.show h2 {
+  background: #EEE url(/images/up-arrow-black.png) no-repeat 98% 1em;
+  border-bottom: 1px solid #CCC;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: .65em;
+  border-top-right-radius: .65em;
+  margin-bottom: 1em;
+}
+
+.grouping h2:hover {
+  background-color: #EEE;
+  border-radius: .65em;
+}
+
+.grouping .grouping-data{
+  display: none;
+}
+
+.grouping.show .grouping-data{
+  display: block;
+}
+
+.grouping .actions {
+  margin-right: 1em;
+}
+
+.grouping-data table.table {
+  clear: both;
+  margin: auto;
+  margin-bottom: 2em;
+  width: 95%;	
+}
+
+.grouping-data p {
+	margin: 1em;
 }

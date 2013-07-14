@@ -15,4 +15,21 @@
 //= require jquery.expander
 //= require_tree .
 
+$(document).ready(function() {
+  function expandCollapseSectionClick() {
+    $(this).next(".grouping-data").slideToggle(500);
+
+    if ($(this).parent().hasClass('show')) {
+      $(this).parent().removeClass('show');
+    }
+    else {
+      $(this).parent().addClass('show');
+    }	  
+  }
+  
+  
+  $("div.grouping h2").click(expandCollapseSectionClick);  
+  
+  $("div.expand_on_load h2").click();
+});
 

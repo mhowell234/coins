@@ -1,116 +1,119 @@
 %p#notice= notice
 
-%p
-  %b Coin:
-  = @mint_coin.coin_id
-%p
-  %b Year:
-  = @mint_coin.year
-%p
-  %b Year grouping:
-  = @mint_coin.year_grouping
-%p
-  %b Mint:
-  = @mint_coin.mint_id
-%p
-  %b Mint grouping:
-  = @mint_coin.mint_grouping
-%p
-  %b Number minted:
-  = @mint_coin.number_minted
-%p
-  %b Number proof minted:
-  = @mint_coin.number_proof_minted
-%p
-  %b Is gold:
-  = @mint_coin.is_gold
-%p
-  %b Is silver:
-  = @mint_coin.is_silver
-
-= link_to 'Edit', edit_coin_mint_coin_path(@coin)
-\|
-= link_to 'Back', coin_mint_coins_path
-
-
-%br
-  
-
-%h2= "Attributes"
 .actions
-  %span.add= link_to "New Attribute", new_mint_coin_mint_coin_attribute_path(@mint_coin)
+  %span.add= link_to "New #{@coin.name} Coin", new_coin_mint_coin_path(@coin)
+  |
+  %span.edit= link_to 'Edit', edit_coin_mint_coin_path(@coin)
+  |
+  %span.delete= link_to 'Delete', coin_mint_coin_path(@coin), :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.back= link_to 'Back', coin_mint_coins_path(@coin)
 
-- if @mint_coin.mint_coin_attributes.size > 0
-  %table.table
-    %thead
-      %tr
-        %th Type
-        %th Value
-        %th
-    %tbody
-      - @mint_coin.mint_coin_attributes.each do |attrib|
-        %tr
-          %td= attrib.attribute_type.value
-          %td= attrib.value
-          %td
-            %span.edit= link_to 'Edit', edit_mint_coin_mint_coin_attribute_path(@mint_coin, attrib)
-            |
-            %span.delete= link_to 'Delete', [@mint_coin, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
+%h1= "#{@mint_coin.title} - #{@mint_coin.coin.name} #{@mint_coin.coin.coin_value.name}"
+
+- if @mint_coin.number_minted > 0 then
   %p
-    %b= "No Attributes Defined"
+    %b Number Minted:
+    = number_with_delimiter(@mint_coin.number_minted)
+  
+- if @mint_coin.number_proof_minted > 0 then
+  %p
+    %b Number Proof Minted:
+    = number_with_delimiter(@mint_coin.number_proof_minted)
 
 %br
 
+- if @coin.has_thumbnails?
+  = raw(show_photos(@coin.get_thumbnails, :size=>300))
+
+.expandable-max
+  %p.description= raw @coin.description
   
-%h2= "Composition"
-.actions
-  %span.add= link_to "New Composition", new_mint_coin_composition_path(@mint_coin)
+%div.visualClear
+%br
 
-- if @mint_coin.compositions.size > 0
-  %table.table
-    %thead
-      %tr
-        %th Metal
-        %th Percentage
-        %th
-    %tbody
-      - @mint_coin.compositions.each do |comp|
-        %tr
-          %td= comp.precious_metal.name
-          %td= comp.percentage
-          %td
-            %span.edit= link_to 'Edit', edit_mint_coin_composition_path(@mint_coin, comp)
-            |
-            %span.delete= link_to 'Delete', [@mint_coin, comp], :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p
-    %b= "No Compositions Defined"
+%div.grouping
+  %h2= "Valuations"
+  %div.grouping-data
+    .actions
+      %span.add= link_to "New Valuation", new_mint_coin_valuation_path(@mint_coin)
 
-%h2= "Valuations"
-.actions
-  %span.add= link_to "New Valuation", new_mint_coin_valuation_path(@mint_coin)
+    - if @mint_coin.valuations.size > 0
+      %table.table
+        %thead
+          %tr
+            %th Agency
+            %th Year
+            %th Rating
+            %th Value
+            %th
+        %tbody
+          - @mint_coin.valuations.each do |val|
+            %tr
+              %td= val.rating_agency.name
+              %td= val.year
+              %td= val.sheldon_rating_scale.title
+              %td= val.value
+              %td
+                %span.edit= link_to 'Edit', edit_mint_coin_valuation_path(@mint_coin, val)
+                |
+                %span.delete= link_to 'Delete', [@mint_coin, val], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      %p
+        %b= "No Valuations Defined"
 
-- if @mint_coin.valuations.size > 0
-  %table.table
-    %thead
-      %tr
-        %th Agency
-        %th Year
-        %th Rating
-        %th Value
-        %th
-    %tbody
-      - @mint_coin.valuations.each do |val|
-        %tr
-          %td= val.rating_agency.name
-          %td= val.year
-          %td= val.sheldon_rating_scale.title
-          %td= val.value
-          %td
-            %span.edit= link_to 'Edit', edit_mint_coin_valuation_path(@mint_coin, val)
-            |
-            %span.delete= link_to 'Delete', [@mint_coin, val], :method => :delete, :data => { :confirm => 'Are you sure?' }
-- else
-  %p
-    %b= "No Valuations Defined"
+  
+
+%div.grouping
+  %h2= "Attributes"
+  %div.grouping-data
+    .actions
+      %span.add= link_to "New Attribute", new_mint_coin_mint_coin_attribute_path(@mint_coin)
+
+    - if @mint_coin.mint_coin_attributes.size > 0
+      %table.table
+        %thead
+          %tr
+            %th Type
+            %th Value
+            %th
+        %tbody
+          - @mint_coin.mint_coin_attributes.each do |attrib|
+            %tr
+              %td= attrib.attribute_type.value
+              %td= attrib.value
+              %td
+                %span.edit= link_to 'Edit', edit_mint_coin_mint_coin_attribute_path(@mint_coin, attrib)
+                |
+                %span.delete= link_to 'Delete', [@mint_coin, attrib], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      %p
+        %b= "No Attributes Defined"
+
+
+%div.grouping
+  %h2= "Composition"
+  %div.grouping-data
+    .actions
+      %span.add= link_to "New Composition", new_mint_coin_composition_path(@mint_coin)
+
+    - if @mint_coin.compositions.size > 0
+      %table.table
+        %thead
+          %tr
+            %th Metal
+            %th Percentage
+            %th
+        %tbody
+          - @mint_coin.compositions.each do |comp|
+            %tr
+              %td= comp.precious_metal.name
+              %td= comp.percentage
+              %td
+                %span.edit= link_to 'Edit', edit_mint_coin_composition_path(@mint_coin, comp)
+                |
+                %span.delete= link_to 'Delete', [@mint_coin, comp], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      %p
+        %b= "No Compositions Defined"
+
