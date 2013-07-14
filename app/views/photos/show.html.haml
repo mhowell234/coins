@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Coin:
+  = @photo.coin_id
+%p
+  %b File name:
+  = @photo.file_name
+%p
+  %b Catpion:
+  = @photo.catpion
+
+= link_to 'Edit', edit_coin_photo_path(@coin)
+\|
+= link_to 'Back', coin_photos_path

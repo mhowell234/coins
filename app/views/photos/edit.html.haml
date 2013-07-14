@@ -1,0 +1,7 @@
+%h1 Editing Photo - #{@coin.name} #{@coin.coin_value.name} 
+
+= render 'form'
+
+= link_to 'Show', [@coin, @photo]
+\|
+= link_to 'Back', coin_photos_path

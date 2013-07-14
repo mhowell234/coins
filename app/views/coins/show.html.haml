@@ -16,13 +16,15 @@
 %p.field.data-info
   (#{@coin.years})
 
-- if @coin.has_photo?
+- if @coin.has_thumbnails?
   %p.align-right
-    = image_tag @coin.photo_path, :width => '300'
+    - thumb = @coin.main_thumbnail
+    = image_tag thumb[:path], {:width => '300', :title => thumb[:caption], :alt => thumb[:caption]}
 
 .expandable-max
   %p.description= raw @coin.description
   
+%div.visualClear
   
 - @mint_coins_by_grouping.each do |grouping|
   - if grouping['title'] != ''
@@ -36,7 +38,6 @@
         %th Coin
         %th # Minted
         %th # Proof Minted
-        %th
         %th
     %tbody
       - grouping['mint_coins'].each do |mint_coin|

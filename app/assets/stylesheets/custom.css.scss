@@ -112,6 +112,10 @@ tr, th, td {
   padding: 3px;
 }
 
+td.middle {
+  vertical-align: middle;
+}
+
 table.table {
   border-collapse:collapse;
   border: 1px solid #e5eff8;

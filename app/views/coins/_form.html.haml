@@ -1,4 +1,4 @@
-= form_for([@coin_value, @coin], :html => { :multipart => true }) do |f|
+= form_for([@coin_value, @coin]) do |f|
 
   - if @coin.errors.any?
     #error_explanation
@@ -33,11 +33,6 @@
     = f.label :coin_value_id, "Coin Denomination"
     %br/
     = f.select :coin_value_id, CoinValue.find(:all, :order=> "value DESC").collect {|c| [c.name, c.id]}
-
-  .field
-    = f.label :photo
-    %br/
-    = f.file_field :photo
 
   .actions
     = f.submit

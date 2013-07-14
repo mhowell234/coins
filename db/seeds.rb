@@ -537,6 +537,136 @@ draped_bust_half_dollar = Coin.create(:name => "Draped Bust", :start_year => 179
 
 capped_bust_lettered_edge_half_dollar = Coin.create(:name => "Capped Bust, Lettered Edge", :start_year => 1807, :end_year => 1836, :description => "<p>John Reich designed this capped-head concept of Liberty. Reich's design of Liberty facing left was used on all U.S. silver denominations for the next 30 years.</p>", :coin_value_id => half_dollar.id)
 
+## Coin Thumbnails
+
+### Double Eagle
+
+Thumbnail.create(:coin_id => liberty_head_double_eagle.id, :file_name => 'UsCoin/Double Eagle/Liberty Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_double_eagle.id, :file_name => 'UsCoin/Double Eagle/Liberty Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => saint_gaudens_double_eagle.id, :file_name => 'UsCoin/Double Eagle/Saint-Gaudens/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => saint_gaudens_double_eagle.id, :file_name => 'UsCoin/Double Eagle/Saint-Gaudens/2-reverse.jpeg', :caption => 'Reverse')
+
+### Eagle
+
+Thumbnail.create(:coin_id => capped_bust_to_right_eagle.id, :file_name => 'UsCoin/Eagle/Capped Bust To Right/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_right_eagle.id, :file_name => 'UsCoin/Eagle/Capped Bust To Right/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => liberty_head_no_motto_above_eagle_eagle.id, :file_name => 'UsCoin/Eagle/Liberty Head, No Motto Above Eagle/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_no_motto_above_eagle_eagle.id, :file_name => 'UsCoin/Eagle/Liberty Head, No Motto Above Eagle/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => liberty_head_motto_above_eagle_eagle.id, :file_name => 'UsCoin/Eagle/Liberty Head, Motto Above Eagle/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_motto_above_eagle_eagle.id, :file_name => 'UsCoin/Eagle/Liberty Head, Motto Above Eagle/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => indian_head_eagle.id, :file_name => 'UsCoin/Eagle/Indian Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => indian_head_eagle.id, :file_name => 'UsCoin/Eagle/Indian Head/2-reverse.jpeg', :caption => 'Reverse')
+
+### Half Eagle
+
+Thumbnail.create(:coin_id => capped_bust_to_right_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Bust To Right/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_right_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Bust To Right/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Bust To Left/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Bust To Left/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => capped_head_to_left_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Head To Left/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_head_to_left_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Capped Head To Left/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => classic_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Classic Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => classic_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Classic Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => liberty_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Liberty Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Liberty Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => indian_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Indian Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => indian_head_half_eagle.id, :file_name => 'UsCoin/Half Eagle/Indian Head/2-reverse.jpeg', :caption => 'Reverse')
+
+### Four-Dollar Gold Piece
+
+Thumbnail.create(:coin_id => stella_four_dollar_gold_piece.id, :file_name => 'UsCoin/Four-Dollar Gold Piece/Stella/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => stella_four_dollar_gold_piece.id, :file_name => 'UsCoin/Four-Dollar Gold Piece/Stella/2-reverse.jpeg', :caption => 'Reverse')
+
+### Three-Dollar Gold Piece
+
+Thumbnail.create(:coin_id => three_dollar_gold_piece_coin.id, :file_name => 'UsCoin/Three-Dollar Gold Piece/Three-Dollar Gold Piece/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => three_dollar_gold_piece_coin.id, :file_name => 'UsCoin/Three-Dollar Gold Piece/Three-Dollar Gold Piece/2-reverse.jpeg', :caption => 'Reverse')
+
+### Quarter Eagle
+
+Thumbnail.create(:coin_id => capped_bust_to_right_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Right/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_right_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Right/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_large_size_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Left - Large Size/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_large_size_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Left - Large Size/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Left/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_to_left_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Capped Bust To Left/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => classic_head_no_motto_on_reverse_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Classic Head - No Motto On Reverse/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => classic_head_no_motto_on_reverse_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Classic Head - No Motto On Reverse/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => liberty_head_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Liberty Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Liberty Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => cal_gold_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/CAL. Gold Quarter Eagle/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => cal_gold_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/CAL. Gold Quarter Eagle/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => indian_head_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Indian Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => indian_head_quarter_eagle.id, :file_name => 'UsCoin/Quarter Eagle/Indian Head/2-reverse.jpeg', :caption => 'Reverse')
+
+### Gold Dollar
+
+Thumbnail.create(:coin_id => liberty_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Liberty Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Liberty Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => indian_princess_head_small_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Indian Princess Head, Small Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => indian_princess_head_small_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Indian Princess Head, Small Head/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => indian_princess_head_large_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Indian Princess Head, Large Head/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => indian_princess_head_small_head_gold_dollar.id, :file_name => 'UsCoin/Gold Dollar/Indian Princess Head, Large Head/2-reverse.jpeg', :caption => 'Reverse')
+
+### Silver Dollar
+
+Thumbnail.create(:coin_id => flowing_hair_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Flowing Hair/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => flowing_hair_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Flowing Hair/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => draped_bust_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Draped Bust/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => draped_bust_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Draped Bust/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => gobrecht_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Gobrecht/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => gobrecht_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Gobrecht/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => liberty_seated_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Liberty Seated/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => liberty_seated_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Liberty Seated/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => trade_dollar_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Trade Dollars/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => trade_dollar_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Trade Dollars/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => morgan_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Morgan/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => morgan_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Morgan/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => peace_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Peace/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => peace_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Peace/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => eisenhower_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Eisenhower/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => eisenhower_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Eisenhower/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => eisenhower_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Eisenhower/3-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => eisenhower_silver_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Eisenhower/4-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => susan_b_anthony_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Susan B. Anthony/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => susan_b_anthony_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Susan B. Anthony/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => sacagawea_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Sacagawea/1-obverse.png', :caption => 'Obverse')
+Thumbnail.create(:coin_id => sacagawea_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Sacagawea/2-reverse.png', :caption => 'Reverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/01-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/02-reverse.jpg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/03-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/04-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/05-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/06-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/07-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/08-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/09-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/10-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/11-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/12-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/13-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/14-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/15-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/16-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/18-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/19-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/20-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/21-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/22-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/23-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/24-obverse.jpg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => presidential_dollar.id, :file_name => 'UsCoin/Silver and Related Dollar/Presidential/25-obverse.jpg', :caption => 'Obverse')
+
+### Half Dollar
+
+Thumbnail.create(:coin_id => flowing_hair_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Flowing Hair/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => flowing_hair_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Flowing Hair/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => draped_bust_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Draped Bust/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => draped_bust_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Draped Bust/2-reverse.jpeg', :caption => 'Reverse')
+Thumbnail.create(:coin_id => capped_bust_lettered_edge_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Capped Bust, Lettered Edge/1-obverse.jpeg', :caption => 'Obverse')
+Thumbnail.create(:coin_id => capped_bust_lettered_edge_half_dollar.id, :file_name => 'UsCoin/Half Dollar/Capped Bust, Lettered Edge/2-reverse.jpeg', :caption => 'Reverse')
+
+
 ## Coin Attributes
 
 ### Silver Dollar

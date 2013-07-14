@@ -1,0 +1,7 @@
+%h1 Editing Thumbnail - #{@coin.name} #{@coin.coin_value.name} 
+
+= render 'form'
+
+= link_to 'Show', [@coin, @thumbnail]
+\|
+= link_to 'Back', coin_thumbnails_path

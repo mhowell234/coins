@@ -21,9 +21,10 @@
           %span.delete= link_to 'Delete', [@coin_value, coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
       %dd
-        - if coin.has_photo?
+        - if coin.has_thumbnails?
           %p.align-right
-            = image_tag coin.photo_path, :width => '150'
+            - thumb = coin.main_thumbnail
+            = image_tag thumb[:path], {:width => '150', :title => thumb[:caption], :alt => thumb[:caption]}
         .expandable
           %p= raw coin.description
   %br/

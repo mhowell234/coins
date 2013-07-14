@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Coin:
+  = @thumbnail.coin_id
+%p
+  %b File name:
+  = @thumbnail.file_name
+%p
+  %b Caption:
+  = @thumbnail.caption
+
+= link_to 'Edit', edit_coin_thumbnail_path(@coin)
+\|
+= link_to 'Back', coin_thumbnails_path

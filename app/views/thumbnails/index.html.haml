@@ -1,0 +1,25 @@
+.actions
+  %span.add= link_to "New #{@coin.name} Thumbnail", new_coin_thumbnail_path(@coin)
+  |
+  %span.back= link_to 'Back', [@coin.coin_value, @coin]
+
+%h1 #{@coin.name} #{@coin.coin_value.name} Thumbnails
+
+- if @coin.thumbnails.size > 0
+  %table.table
+    %tr
+      %th Photo
+      %th Caption
+      %th
+    - @thumbnails.each do |thumbnail|
+      %tr
+        %td= image_tag thumbnail.img_path, {:width => '100', :title => thumbnail.caption, :alt => thumbnail.caption}
+        %td.middle= thumbnail.caption
+        %td.middle
+          %span.edit= link_to 'Edit', edit_coin_thumbnail_path(@coin, thumbnail)
+          |
+          %span.delete= link_to 'Delete', [@coin, thumbnail], :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %p
+    %b= "No Thumbnails"
+%br/

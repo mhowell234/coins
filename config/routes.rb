@@ -1,11 +1,5 @@
 Coins::Application.routes.draw do
 
-  resources :valuations
-
-
-  resources :compositions
-
-
   root :to=> 'static_pages#home'
 
   match '/help',    :to=> 'static_pages#help'
@@ -38,6 +32,8 @@ Coins::Application.routes.draw do
   resources :coins do  
     resources :mint_coins
     resources :coin_attributes
+    resources :photos
+    resources :thumbnails
   end
 
   resources :mint_coins do
@@ -51,6 +47,8 @@ Coins::Application.routes.draw do
   resources :mint_coin_attributes
   resources :compositions
   resources :valuations
+  resources :photos
+  resources :thumbnails
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
