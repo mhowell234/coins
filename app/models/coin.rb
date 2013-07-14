@@ -71,18 +71,24 @@ class Coin < ActiveRecord::Base
     return false
   end
 
-  def main_thumbnail
-    if not has_thumbnails?
-      return nil
+  def get_thumbnails
+    photos = Array.new
+    
+    for thumbnail in thumbnails do
+      data = Hash.new
+
+      data[:path] = thumbnail.img_path
+      data[:parent_path] = thumbnail.parent_path
+      data[:caption] = thumbnail.caption
+      
+      photos.push(data)
     end
     
-    thumbnail = thumbnails.first
-    data = Hash.new
-    
-    data[:path] = thumbnail.img_path
-    data[:caption] = thumbnail.caption
-    
-    return data
+    return photos
+  end
+  
+  def main_thumbnail
+    get_thumbnails.first
   end
   
   # where to write the image file to

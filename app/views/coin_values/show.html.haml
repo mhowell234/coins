@@ -21,9 +21,7 @@
       %section= coin.years
     %dd
       - if coin.has_thumbnails?
-        %p.align-right
-          - thumb = coin.main_thumbnail
-          = image_tag thumb[:path], {:width => '150', :title => thumb[:caption], :alt => thumb[:caption]}
+        = raw(show_photos(coin.get_thumbnails, :size=>150))
       .expandable
         %p= raw coin.description
         

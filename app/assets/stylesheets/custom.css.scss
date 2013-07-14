@@ -94,6 +94,10 @@ a {
     color: #fff;
     background-color: #000;
   }
+  
+  img {
+    border: 0;
+  }
 }
 
 pre {
@@ -574,4 +578,8 @@ dt .actions {
 .data-info {
   font-weight: bold;
   margin-bottom: 1.5em;
+}
+
+.photo-section, .photo-section a, .photo-section a:hover {
+  background: transparent;
 }
