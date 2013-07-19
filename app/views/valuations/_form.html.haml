@@ -14,7 +14,7 @@
 
   .field
     = f.label :year
-    = f.text_field :year
+    = select_year(@valuation.year || Date.today, :start_year => 2013, :end_year => Time.now.year, :field_name => 'year', :prefix => 'valuation')
 
   .field
     = f.label "Rating"

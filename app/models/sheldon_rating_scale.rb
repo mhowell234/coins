@@ -6,4 +6,6 @@ class SheldonRatingScale < ActiveRecord::Base
 
   validates :sheldon_rating_category_id, :presence=> true
 
+  default_scope joins(:sheldon_rating_category).order('special_order ASC, value ASC')
+  
 end

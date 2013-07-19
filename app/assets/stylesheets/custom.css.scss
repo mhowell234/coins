@@ -467,7 +467,7 @@ div {
 .actions {
   float: right;
   font-size: .8em;
-  padding-left: 1em;
+  padding-left: 2em;
 }
 
 
@@ -498,9 +498,9 @@ input {
   height: auto !important;
 }
 
-.description {
+/*.description {
   font-weight: bold;
-}
+}*/
 
 span {
   &.add, &.add a {
@@ -575,12 +575,14 @@ dt .actions {
 .read-more {
   &, a {
     color: blue;
+    font-weight: bold;
   }
 }
 
 .read-less {
   &, a {
     color: red;
+    font-weight: bold;
   }
 }
 
@@ -639,6 +641,10 @@ dt .actions {
 
 .grouping .actions {
   margin-right: 1em;
+}
+
+.grouping-data h3 {
+  margin-left: 1em;	
 }
 
 .grouping-data table.table {

@@ -7,6 +7,8 @@
   |
   %span.delete= link_to 'Delete', coin_mint_coin_path(@coin), :method => :delete, :data => { :confirm => 'Are you sure?' }
   |
+  %span.view= link_to "Valuations", mint_coin_valuations_path(@mint_coin)
+  |
   %span.back= link_to 'Back', coin_mint_coins_path(@coin)
 
 %h1= "#{@mint_coin.title} - #{@mint_coin.coin.name} #{@mint_coin.coin.coin_value.name}"
@@ -33,35 +35,79 @@
 %br
 
 %div.grouping
-  %h2= "Valuations"
+  %h2= "Valuations - By Year"
   %div.grouping-data
     .actions
       %span.add= link_to "New Valuation", new_mint_coin_valuation_path(@mint_coin)
 
-    - if @mint_coin.valuations.size > 0
-      %table.table
-        %thead
-          %tr
-            %th Agency
-            %th Year
-            %th Rating
-            %th Value
-            %th
-        %tbody
-          - @mint_coin.valuations.each do |val|
+    - all_valuations = @mint_coin.get_valuations_grouped_by_year
+    - if not all_valuations.nil? and all_valuations.length > 0
+      - data = all_valuations[:data]
+      - scales = all_valuations[:scales_per_year]
+      - years = data.keys.sort { |x, y| y <=> x } # Sort in reverse order
+      
+      - years.each do |year|
+        %h3= year
+        
+        - scales_for_year = scales[year]
+        %table.table
+          %thead
             %tr
-              %td= val.rating_agency.name
-              %td= val.year
-              %td= val.sheldon_rating_scale.title
-              %td= val.value
-              %td
-                %span.edit= link_to 'Edit', edit_mint_coin_valuation_path(@mint_coin, val)
-                |
-                %span.delete= link_to 'Delete', [@mint_coin, val], :method => :delete, :data => { :confirm => 'Are you sure?' }
+              %th Agency
+              - scales_for_year.each do |scale|
+                %th= scale
+          %tbody
+            - agencies = data[year].keys
+            - agencies.each do |agency|
+              %tr
+                %td= agency
+                - ratings = data[year][agency]
+                - scales_for_year.each do |scale|
+                  - if not ratings.has_key?(scale)
+                    %td
+                  - else
+                    - value = ratings[scale]
+                    %td= number_to_currency(value, :unit => "$", :precision => (value.round == value) ? 0 : 2)
     - else
       %p
         %b= "No Valuations Defined"
+  %div.visualClear
+  
+- valuations_by_agency = @mint_coin.get_valuations_grouped_by_agency
+- if not valuations_by_agency.nil? and valuations_by_agency.length > 0
+  %div.grouping
+    %h2= "Valuations - By Agency"
+    %div.grouping-data
+      .actions
+        %span.add= link_to "New Valuation", new_mint_coin_valuation_path(@mint_coin)
 
+      - data = valuations_by_agency[:data]
+      - scales = valuations_by_agency[:scales_per_agency]
+      - agencies = data.keys.sort { |x, y| y <=> x } # Sort in reverse order
+      
+      - agencies.each do |agency|
+        %h3= agency
+        
+        - scales_for_agency = scales[agency]
+        %table.table
+          %thead
+            %tr
+              %th Year
+              - scales_for_agency.each do |scale|
+                %th= scale
+          %tbody
+            - years = data[agency].keys.sort { |x, y| y <=> x } # Sort in reverse order
+            - years.each do |year|
+              %tr
+                %td= year
+                - ratings = data[agency][year]
+                - scales_for_agency.each do |scale|
+                  - if not ratings.has_key?(scale)
+                    %td
+                  - else
+                    - value = ratings[scale]
+                    %td= number_to_currency(value, :unit => "$", :precision => (value.round == value) ? 0 : 2)
+    %div.visualClear
   
 
 %div.grouping
@@ -89,6 +135,7 @@
     - else
       %p
         %b= "No Attributes Defined"
+    %div.visualClear
 
 
 %div.grouping
@@ -116,4 +163,5 @@
     - else
       %p
         %b= "No Compositions Defined"
+    %div.visualClear
 

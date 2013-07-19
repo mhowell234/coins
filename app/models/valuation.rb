@@ -4,4 +4,7 @@ class Valuation < ActiveRecord::Base
   belongs_to :mint_coin
   belongs_to :rating_agency
   belongs_to :sheldon_rating_scale
+  
+  default_scope joins(:sheldon_rating_scale).order('year DESC')
+      
 end

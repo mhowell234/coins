@@ -91,38 +91,6 @@ class MintCoinsController < ApplicationController
   
   private
 
-    
-    
-  def mint_coins_by_grouping_but_by_date_first
-    mint_coins = @coin.mint_coins
-
-    grouping = Array.new
-    
-    grouping_hash = Hash.new
-    grouping_hash['title'] = ''
-    grouping_hash['mint_coins'] = Array.new
-    
-    mint_coins.each do |mint_coin|
-      if mint_coin.year_grouping != grouping_hash['title'] then
-        if grouping_hash['mint_coins'].length > 0 then
-          grouping << grouping_hash
-        end
-        
-        grouping_hash = Hash.new
-        grouping_hash['title'] = mint_coin.year_grouping
-        grouping_hash['mint_coins'] = Array.new
-      end
-     
-      grouping_hash['mint_coins'] << mint_coin        
-    end
-    
-    if grouping_hash['mint_coins'].length > 0 then
-      grouping << grouping_hash
-    end
-    
-    return grouping
-  end
-    
   # get_coin converts the coin_id given by routing into 
   # a @coin object, for use here and in the view.
   def get_coin
