@@ -528,6 +528,11 @@ span {
     font-weight: bold;
     padding-left: 1em;
   }
+
+  &.view, &.view a {
+    color: purple;
+    font-weight: bold;  
+  }
 }
 
 .hide {

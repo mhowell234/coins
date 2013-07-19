@@ -9,8 +9,9 @@ class MintCoinsController < ApplicationController
   def index
     @mint_coins = @coin.mint_coins
 
-    @mint_coins_by_grouping = mint_coins_by_grouping
-    
+    @mint_coins_by_grouping = group_mint_coins(@mint_coins)
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @mint_coins }
@@ -90,7 +91,9 @@ class MintCoinsController < ApplicationController
   
   private
 
-  def mint_coins_by_grouping
+    
+    
+  def mint_coins_by_grouping_but_by_date_first
     mint_coins = @coin.mint_coins
 
     grouping = Array.new
@@ -119,8 +122,6 @@ class MintCoinsController < ApplicationController
     
     return grouping
   end
-    
-  private
     
   # get_coin converts the coin_id given by routing into 
   # a @coin object, for use here and in the view.

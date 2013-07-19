@@ -1,14 +1,21 @@
 %p#notice= notice
 
-%p
-  %b Coin:
-  = @thumbnail.coin_id
-%p
-  %b File name:
-  = @thumbnail.file_name
+
+%h1
+  = @coin.name
+  \- #{@coin.coin_value.name}
+
 %p
   %b Caption:
   = @thumbnail.caption
+
+
+= raw show_photos([@thumbnail.get_hash], args={})
+
+%p
+  %b File name:
+  = @thumbnail.file_name
+
 
 = link_to 'Edit', edit_coin_thumbnail_path(@coin)
 \|

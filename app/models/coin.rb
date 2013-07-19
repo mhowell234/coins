@@ -75,13 +75,7 @@ class Coin < ActiveRecord::Base
     photos = Array.new
     
     for thumbnail in thumbnails do
-      data = Hash.new
-
-      data[:path] = thumbnail.img_path
-      data[:parent_path] = thumbnail.parent_path
-      data[:caption] = thumbnail.caption
-      
-      photos.push(data)
+      photos.push(thumbnail.get_hash)
     end
     
     return photos

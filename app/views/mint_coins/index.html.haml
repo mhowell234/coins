@@ -5,35 +5,46 @@
 
 %h1= link_to "#{@coin.name} - #{@coin.coin_value.name}", [@coin]
 
-- @mint_coins_by_grouping.each do |grouping|
-  %h2= grouping['title'] if grouping['title'] != ''
-  
-  %table.table
-    %thead
-      %tr
-        %th Coin
-        %th # Minted
-        %th # Proof Minted
-        %th
-    %tbody
-      - grouping['mint_coins'].each do |mint_coin|
-        %tr
-          %td= link_to mint_coin.title, [@coin, mint_coin]
-          %td
-            - if mint_coin.number_minted > 0 then
-              = number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
-            - else
-              %span.dash -
-          %td
-            - if mint_coin.number_proof_minted > 0 then
-              = number_with_delimiter(mint_coin.number_proof_minted, :delimiter => ',')
-            - else
-              %span.dash -
-          %td
-            %span.edit= link_to 'Edit', edit_coin_mint_coin_path(@coin, mint_coin)
-            |
-            %span.delete= link_to 'Delete', [@coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  %br
+- grouping_order = @mint_coins_by_grouping[:order]
+- groupings = @mint_coins_by_grouping[:groupings]
+- expand_section = true
+
+- grouping_order.each do |order|
+
+  - current_class = ''
+  - if expand_section == true then
+    - current_class = 'expand_on_load'
+    - expand_section = false
+  
+  %div{:class => "grouping #{current_class}"}
+    %h2= order
+
+    %div.grouping-data
+      %table.table
+        %thead
+          %tr
+            %th Coin
+            %th # Minted
+            %th # Proof Minted
+            %th
+        %tbody
+          - groupings[order].each do |mint_coin|
+            %tr
+              %td= link_to mint_coin.title, [@coin, mint_coin]
+              %td
+                - if mint_coin.number_minted > 0 then
+                  = number_with_delimiter(mint_coin.number_minted, :delimiter => ',')
+                - else
+                  %span.dash -
+              %td
+                - if mint_coin.number_proof_minted > 0 then
+                  = number_with_delimiter(mint_coin.number_proof_minted, :delimiter => ',')
+                - else
+                  %span.dash -
+              %td
+                %span.edit= link_to 'Edit', edit_coin_mint_coin_path(@coin, mint_coin)
+                |
+                %span.delete= link_to 'Delete', [@coin, mint_coin], :method => :delete, :data => { :confirm => 'Are you sure?' }
   
 %br

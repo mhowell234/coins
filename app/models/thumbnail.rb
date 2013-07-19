@@ -14,5 +14,15 @@ class Thumbnail < ActiveRecord::Base
   def parent_path
     "#{PHOTO_PATH}/#{file_name}"
   end
-    
+
+  def get_hash
+    data = Hash.new
+
+    data[:path] = img_path
+    data[:parent_path] = parent_path
+    data[:caption] = caption
+      
+    return data
+  end
+      
 end

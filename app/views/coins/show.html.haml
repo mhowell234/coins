@@ -7,6 +7,8 @@
   |
   %span.delete= link_to 'Delete', coin_value_coin_path(@coin_value), :method => :delete, :data => { :confirm => 'Are you sure?' }
   |
+  %span.view= link_to "Thumbnails", coin_thumbnails_path(@coin)
+  |
   %span.back= link_to 'Back', coin_value_coins_path(@coin_value)
 
 %h1
@@ -25,20 +27,20 @@
 %div.visualClear
 %br
 
+- grouping_order = @mint_coins_by_grouping[:order]
+- groupings = @mint_coins_by_grouping[:groupings]
 - expand_section = true
 
-- @mint_coins_by_grouping.each do |grouping|
+- grouping_order.each do |order|
+
   - current_class = ''
   - if expand_section == true then
     - current_class = 'expand_on_load'
     - expand_section = false
   
   %div{:class => "grouping #{current_class}"}
-    - if grouping['title'] != ''
-      %h2= grouping['title']
-    - else
-      %h2= 'Coins'
-    
+    %h2= order
+
     %div.grouping-data
       %table.table
         %thead
@@ -48,7 +50,7 @@
             %th # Proof Minted
             %th
         %tbody
-          - grouping['mint_coins'].each do |mint_coin|
+          - groupings[order].each do |mint_coin|
             %tr
               %td= link_to mint_coin.title, [@coin, mint_coin]
               %td

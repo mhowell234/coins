@@ -17,8 +17,14 @@ module ApplicationHelper
     else
       size = args[:size]
     end
+  
+    if not args.has_key?(:class) then
+      classType = 'align-right'
+    else
+      classType = args[:class]
+    end
     
-    data = "<p class='align-right photo-section'>"
+    data = "<p class='#{classType} photo-section'>"
     thumb = thumbs.first
 
     data << "<a href='#{thumb[:parent_path]}' class='lightview' data-lightview-group='coins' data-lightview-type='image' data-lightview-group-options='controls: \"thumbnails\"'>"
