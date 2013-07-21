@@ -1,0 +1,20 @@
+= form_for ([@our_coin, @our_coin_thumbnail]) do |f|
+  - if @our_coin_thumbnail.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@our_coin_thumbnail.errors.count, "error")} prohibited this our_coin_thumbnail from being saved:"
+      %ul
+        - @our_coin_thumbnail.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :our_coin_id, :value => @our_coin.id
+
+  .field
+    = f.label :file_name
+    = f.text_field :file_name
+
+  .field
+    = f.label :caption
+    = f.text_field :caption
+
+  .actions
+    = f.submit 'Save'

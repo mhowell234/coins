@@ -7,6 +7,10 @@ class MintCoin < ActiveRecord::Base
   has_many :mint_coin_attributes
   has_many :compositions
   has_many :valuations
+  has_many :our_coins
+  
+  default_scope joins(:mint).order('year ASC, year_grouping ASC, always_present ASC, mints.name ASC, mint_grouping ASC')
+  
   
   # Displays a readable year/mint name for this coin
   def title
@@ -26,6 +30,73 @@ class MintCoin < ActiveRecord::Base
     end
     
     return title
+  end
+  
+
+  def full_title
+    coin = Coin.find(coin_id)
+    coin_value = CoinValue.find(coin.coin_value_id)
+    
+    return "#{coin_value.name} - #{coin.name} - #{title}"    
+  end
+  
+
+  def full_name
+    coin = Coin.find(coin_id)
+    coin_value = CoinValue.find(coin.coin_value_id)
+    
+    return "#{coin.name} #{coin_value.name} - #{title}"    
+  end
+
+  
+  def get_melt_values
+  
+    has_weight = false
+    weight = 0
+    mint_coin_attributes.each do |attrib|
+      if attrib.attribute_type_id == 2 and not attrib.value.nil?
+        has_weight = true
+        weight = attrib.value
+        break
+      end
+    end
+  
+    return nil if not has_weight
+
+    has_compositions = false
+    
+    data = Array.new
+    total_value = 0.0
+    compositions.each do |composition|
+      has_compositions = true
+
+      metal = PreciousMetal.find(composition.precious_metal_id)
+
+      comp = Hash.new
+      comp['name'] = metal.name
+      comp['percentage'] = composition.percentage
+      
+      comp['value'] = metal.price_per_gram.to_f * weight.to_f
+      total_value = total_value + comp['value']
+      
+      comp['price_per_unit'] = metal.price_per_unit
+      comp['unit'] = metal.unit
+     
+      data << comp
+    end
+    
+    # Add total data
+    if data.length > 0
+      totals = Hash.new
+      totals['name'] = 'Total'
+      totals['value'] = total_value
+      data << totals
+    end
+    
+    return nil if not has_compositions
+    
+    return data
+    
   end
   
   
@@ -64,7 +135,12 @@ class MintCoin < ActiveRecord::Base
       end
     end
     
-    return {:data => valuation_data, :scales_per_year => scales_per_year}
+    if valuation_data.length > 0 and scales_per_year.length > 0 then
+      return {:data => valuation_data, :scales_per_year => scales_per_year}
+    else
+      return nil
+    end
+    
   end
   
   
@@ -101,7 +177,11 @@ class MintCoin < ActiveRecord::Base
       end
     end
     
-    return {:data => valuation_data, :scales_per_agency => scales_per_agency}
+    if valuation_data.length > 0 and scales_per_agency.length > 0 then
+      return {:data => valuation_data, :scales_per_agency => scales_per_agency}
+    else
+      return nil
+    end
   end  
   
 end

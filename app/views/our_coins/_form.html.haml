@@ -1,0 +1,46 @@
+= form_for @our_coin do |f|
+  - if @our_coin.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@our_coin.errors.count, "error")} prohibited this our_coin from being saved:"
+      %ul
+        - @our_coin.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label "Coin"
+        
+    - coins = MintCoin.unscoped.joins(:mint, :coin => :coin_value).order('coin_values.value DESC, coins.id ASC, year ASC').collect {|o| [o.full_title, o.id]}
+    
+    - #.order('year ASC, year_grouping ASC, always_present ASC, name ASC, mint_grouping ASC')
+    
+    = f.select :mint_coin_id, coins
+
+  .field
+    = f.label :price_paid
+    = f.text_field :price_paid
+    
+  .field
+    = f.label "Origin"
+    %br/
+    - origins = Origin.find(:all, :order=> "name ASC").collect {|o| [o.name, o.id]}
+    = f.select :origin_id, origins
+    
+    
+  .field
+    = f.label :origin_date
+    = f.date_select :origin_date
+
+  .field
+    = f.label :is_silver
+    = f.check_box :is_silver
+
+  .field
+    = f.label :is_gold
+    = f.check_box :is_gold
+
+  .field
+    = f.label "Proof?"
+    = f.check_box :is_proof
+
+  .actions
+    = f.submit 'Save'

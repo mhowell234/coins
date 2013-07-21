@@ -1,0 +1,2 @@
+module OurCoinThumbnailsHelper
+end

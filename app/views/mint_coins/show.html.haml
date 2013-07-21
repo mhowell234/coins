@@ -110,6 +110,56 @@
     %div.visualClear
   
 
+
+- melt_values = @mint_coin.get_melt_values
+- if not melt_values.nil? and melt_values.length > 0
+  %div.grouping
+    %h2= "Valuations - By Melt Value"
+    %div.grouping-data
+
+      %table.table
+        %thead
+          %tr
+            %th Metal
+            %th Price
+            %th Percentage
+            %th Value
+        %tbody
+          - melt_values.each do |melt|
+            - if melt['name'] == melt_values.last.fetch('name')
+              - is_total_row = true
+            - else
+              - is_total_row = false
+              
+            %tr
+              %td
+                - if is_total_row 
+                  %b= melt['name']
+                - else
+                  %span= melt['name']
+              
+              - if melt.has_key?('price_per_unit')
+                - pricePerUnit = number_to_currency(melt['price_per_unit'], :unit => "$", :precision => (melt['price_per_unit'].round == melt['price_per_unit']) ? 0 :2)
+                - unitText = "#{pricePerUnit} per #{melt['unit']}"
+              - else
+                - unitText = ''
+              %td= unitText
+              
+              - if melt.has_key?('percentage')
+                - percentageText = number_to_percentage(melt['percentage'], :precision => ((melt['percentage']*100).round == (melt['percentage']*100)) ? 0 : 2)
+              - else
+                - percentageText = ''
+              %td= percentageText
+              
+              - value = number_to_currency(melt['value'], :unit => "$", :precision => (melt['value'].round == melt['value']) ? 0 : 2)
+              %td
+                - if is_total_row
+                  %b= value
+                - else
+                  %span= value
+    %div.visualClear
+
+
 %div.grouping
   %h2= "Attributes"
   %div.grouping-data
@@ -155,7 +205,7 @@
           - @mint_coin.compositions.each do |comp|
             %tr
               %td= comp.precious_metal.name
-              %td= comp.percentage
+              %td= number_to_percentage(comp.percentage, :precision => ((comp.percentage*100).round == (comp.percentage*100)) ? 0 : 2)              
               %td
                 %span.edit= link_to 'Edit', edit_mint_coin_composition_path(@mint_coin, comp)
                 |

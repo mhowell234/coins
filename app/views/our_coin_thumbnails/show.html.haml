@@ -1,0 +1,21 @@
+%p#notice= notice
+
+
+%h1
+  = @our_coin_thumbnail.our_coin.title
+
+%p
+  %b Caption:
+  = @our_coin_thumbnail.caption
+
+
+= raw show_photos([@our_coin_thumbnail.get_hash], args={})
+
+%p
+  %b File name:
+  = @our_coin_thumbnail.file_name
+
+
+= link_to 'Edit', edit_our_coin_our_coin_thumbnail_path(@our_coin)
+\|
+= link_to 'Back', our_coin_our_coin_thumbnails_path

@@ -20,4 +20,6 @@ class Mint < ActiveRecord::Base
   validates :name, :presence=> true
   validates :symbol, :presence=> true
 
+  default_scope order('always_present ASC')
+
 end

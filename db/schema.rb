@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130713231704) do
+ActiveRecord::Schema.define(:version => 20130721044725) do
 
   create_table "attribute_types", :force => true do |t|
     t.text     "value"
@@ -115,6 +115,26 @@ ActiveRecord::Schema.define(:version => 20130713231704) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "description"
+  end
+
+  create_table "our_coin_thumbnails", :force => true do |t|
+    t.integer  "our_coin_id"
+    t.string   "file_name"
+    t.string   "caption"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "our_coins", :force => true do |t|
+    t.integer  "mint_coin_id"
+    t.float    "price_paid"
+    t.integer  "origin_id"
+    t.date     "origin_date"
+    t.boolean  "is_silver"
+    t.boolean  "is_gold"
+    t.boolean  "is_proof"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "photos", :force => true do |t|

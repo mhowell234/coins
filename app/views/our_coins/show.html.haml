@@ -1,0 +1,33 @@
+%p#notice= notice
+
+.actions
+  %span.edit= link_to 'Edit', edit_our_coin_path(@our_coin)
+  |
+  %span.delete= link_to 'Delete', our_coin_path, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  |
+  %span.view= link_to "Thumbnails", our_coin_our_coin_thumbnails_path(@our_coin)
+  |
+  %span.back= link_to 'Back', our_coins_path
+
+%h1= @our_coin.title
+
+- if @our_coin.has_thumbnails?
+  = raw(show_photos(@our_coin.get_thumbnails, :size=>300))
+
+- if @our_coin.mint_coin.number_minted > 0 then
+  %p
+    %b Number Minted:
+    = number_with_delimiter(@our_coin.mint_coin.number_minted)
+  
+%p
+  %b Price Paid:
+  = number_to_currency(@our_coin.price_paid, :unit => "$", :precision => (@our_coin.price_paid.round == @our_coin.price_paid) ? 0 : 2)
+
+%p
+  %b Bought From:
+  = "#{@our_coin.origin.name} on #{@our_coin.origin_date}"
+
+.expandable-max
+  %p.description= raw @our_coin.coin.description
+  
+%div.visualClear

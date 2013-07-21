@@ -41,6 +41,12 @@ Coins::Application.routes.draw do
     resources :compositions
     resources :valuations
   end
+
+  resources :our_coins do
+    resources :our_coin_thumbnails 
+  end
+
+
   
   resources :coin_value_attributes
   resources :coin_attributes
@@ -49,6 +55,7 @@ Coins::Application.routes.draw do
   resources :valuations
   resources :photos
   resources :thumbnails
+  resources :our_coin_thumbnails 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
